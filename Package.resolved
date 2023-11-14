@@ -1,0 +1,68 @@
+{
+  "pins" : [
+    {
+      "identity" : "keychainaccess",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kishikawakatsumi/KeychainAccess.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "e0c7eebc5a4465a3c4680764f26b7a61f567cdaf"
+      }
+    },
+    {
+      "identity" : "swift-system",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-system.git",
+      "state" : {
+        "revision" : "025bcb1165deab2e20d4eaba79967ce73013f496",
+        "version" : "1.2.1"
+      }
+    },
+    {
+      "identity" : "swift-url",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/karwa/swift-url.git",
+      "state" : {
+        "revision" : "a04b0e57f148698d091c90392901ce92fd0c5623",
+        "version" : "0.4.1"
+      }
+    },
+    {
+      "identity" : "swiftcloud",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nafehshoaib/SwiftCloud.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "00cc9f8005b96327069c14b510f88bc4d604a3a0"
+      }
+    },
+    {
+      "identity" : "swiftdate",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/malcommac/SwiftDate.git",
+      "state" : {
+        "revision" : "5d943224c3bb173e6ecf27295611615eba90c80e",
+        "version" : "7.0.0"
+      }
+    },
+    {
+      "identity" : "swiftyjson",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftyJSON/SwiftyJSON.git",
+      "state" : {
+        "revision" : "b3dcd7dbd0d488e1a7077cb33b00f2083e382f07",
+        "version" : "5.0.1"
+      }
+    },
+    {
+      "identity" : "usefulswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nafehshoaib/UsefulSwift.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "b6ddde41c3dea5aa63cce54522da2f168f5d86c8"
+      }
+    }
+  ],
+  "version" : 2
+}

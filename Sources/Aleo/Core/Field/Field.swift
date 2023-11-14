@@ -27,6 +27,6 @@ public struct Field: Equatable, LosslessStringConvertible {
     }
     
     public func toString() -> String {
-        return rustField.r_to_string().toString()
+        rustField.r_to_string().toString()
     }
 }

@@ -37,12 +37,12 @@ public struct ViewKey: Equatable, LosslessStringConvertible {
     ///
     /// - Returns: String representation of a view key.
     public func toString() -> String {
-        return rustViewKey.r_to_string().toString()
+        rustViewKey.r_to_string().toString()
     }
     
     /// Get the address corresponding to a view key.
     public var address: Address {
-        return Address(rustAddress: rustViewKey.r_to_address())
+        Address(rustAddress: rustViewKey.r_to_address())
     }
     
     /// Decrypt a record ciphertext with a view key.
@@ -50,6 +50,6 @@ public struct ViewKey: Equatable, LosslessStringConvertible {
     /// - Parameter ciphertext: String representation of a record ciphertext.
     /// - Returns: String representation of a record plaintext.
     public func decrypt(ciphertext: String) -> String? {
-        return rustViewKey.r_decrypt(ciphertext)?.toString()
+        rustViewKey.r_decrypt(ciphertext)?.toString()
     }
 }

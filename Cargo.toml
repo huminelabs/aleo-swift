@@ -1,0 +1,136 @@
+[package]
+name = "aleo-swift"
+version = "0.1.1"
+authors = ["The Humine Labs <hello@huminelabs.com"]
+description = "Toolkit for exporting key Aleo functionality and cryptography to native Swift"
+homepage = "https://www.huminelabs.com"
+repository = "https://github.com/huminelabs/AleoSwift"
+keywords = [
+    "aleo",
+    "cryptography",
+    "blockchain",
+    "decentralized",
+    "zero-knowledge",
+    "swift",
+    "apple",
+]
+categories = ["cryptography::cryptocurrencies"]
+include = ["Cargo.toml", "src", "README.md", "LICENSE.md"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["staticlib"]
+
+[build-dependencies]
+swift-bridge-build = { git = "https://github.com/huminelabs/swift-bridge.git", branch = "internal-generated-swift" }
+
+[dependencies]
+openssl = { version = "*", features = ["vendored"] }
+swift-bridge = { git = "https://github.com/huminelabs/swift-bridge.git", branch = "internal-generated-swift" }
+swift-bridge-build = { git = "https://github.com/huminelabs/swift-bridge.git", branch = "internal-generated-swift" }
+
+[dependencies.snarkvm-circuit-network]
+version = "0.16.1"
+
+[dependencies.snarkvm-console]
+version = "0.16.1"
+features = ["wasm"]
+
+[dependencies.snarkvm-ledger-block]
+version = "0.16.1"
+features = ["wasm"]
+
+[dependencies.snarkvm-ledger-query]
+version = "0.16.1"
+features = ["async", "wasm"]
+
+[dependencies.snarkvm-ledger-store]
+version = "0.16.1"
+
+[dependencies.snarkvm-synthesizer]
+version = "0.16.1"
+features = ["async", "wasm"]
+
+[dependencies.snarkvm-wasm]
+version = "0.16.1"
+features = ["console", "fields", "utilities"]
+
+[dependencies.anyhow]
+version = "1.0"
+
+[dependencies.getrandom]
+version = "0.2"
+features = ["js"]
+
+[dependencies.indexmap]
+version = "2.0.0"
+
+[dependencies.lazy_static]
+version = "1.4.0"
+
+[dependencies.hex]
+version = "0.4.3"
+
+[dependencies.js-sys]
+version = "0.3"
+
+[dependencies.once_cell]
+version = "1.18.0"
+
+[dependencies.rand]
+version = "0.8"
+
+[dependencies.rayon]
+version = "1.8"
+
+[dependencies.reqwest]
+version = "0.11.18"
+
+[dependencies.serde_json]
+version = "1.0"
+
+[build-dependencies.walkdir]
+version = "2"
+
+[dependencies.wasm-bindgen]
+version = "0.2"
+features = ["serde-serialize"]
+
+[dependencies.wasm-bindgen-futures]
+version = "0.4.37"
+
+[dependencies.console_error_panic_hook]
+version = "0.1.7"
+
+[dependencies.serde]
+version = "1.0.183"
+
+[dev-dependencies.snarkvm-parameters]
+version = "0.16.1"
+features = ["wasm"]
+
+[dependencies.spmc]
+version = "0.3.0"
+
+[dependencies.futures]
+version = "0.3.28"
+
+[dependencies.web-sys]
+version = "0.3.64"
+features = ["Url", "Navigator", "Window"]
+
+[dev-dependencies.wasm-bindgen-test]
+version = "0.3.37"
+
+[features]
+default = ["serial", "browser"]
+serial = [
+    "snarkvm-console/serial",
+    "snarkvm-synthesizer/serial",
+    "snarkvm-ledger-query/serial",
+    "snarkvm-ledger-block/serial",
+    "snarkvm-ledger-store/serial",
+]
+browser = []

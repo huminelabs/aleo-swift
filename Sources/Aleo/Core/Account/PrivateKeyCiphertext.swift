@@ -49,7 +49,7 @@ public struct PrivateKeyCiphertext: Equatable, LosslessStringConvertible {
     ///
     /// - Returns: Ciphertext string.
     public func toString() -> String {
-        return rustPrivateKeyCiphertext.r_to_string().toString()
+        rustPrivateKeyCiphertext.r_to_string().toString()
     }
     
     /// Decrypts a private ciphertext using a secret string.

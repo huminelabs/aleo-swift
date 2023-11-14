@@ -41,13 +41,13 @@ public struct Signature: LosslessStringConvertible {
     /// - Parameter message: Byte representation of the message to verify.
     /// - Returns: True if the signature is valid, false otherwise.
     public func verify(address: Address, message: [UInt8]) -> Bool {
-        return rustSignature.r_verify(address.rustAddress, message.withUnsafeBufferPointer { $0 })
+        rustSignature.r_verify(address.rustAddress, message.withUnsafeBufferPointer { $0 })
     }
     
     /// Get a string representation of a signature.
     ///
     /// - Returns: String representation of a signature.
     public func toString() -> String {
-        return rustSignature.r_to_string().toString()
+        rustSignature.r_to_string().toString()
     }
 }

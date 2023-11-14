@@ -1,14 +1,14 @@
 //
-//  AleoNetworkBlock.swift
+//  AleoCloudClient+Models.swift
 //
 //
-//  Created by Nafeh Shoaib on 11/12/23.
+//  Created by Nafeh Shoaib on 11/08/23.
 //
 
 import Foundation
 
 extension AleoCloudClient {
-    struct Block: Codable {
+    public struct Block: Codable {
         enum CodingKeys: String, CodingKey {
             case blockHash = "block_hash"
             case previousHash = "previous_hash"
@@ -16,81 +16,81 @@ extension AleoCloudClient {
             case transactions
             case signature
         }
-        var blockHash: String
-        var previousHash: String
-        var header: Header
-        var transactions: [ConfirmedTransaction]?
-        var signature: String
+        public var blockHash: String
+        public var previousHash: String
+        public var header: Header
+        public var transactions: [ConfirmedTransaction]?
+        public var signature: String
     }
     
-    struct Header: Codable {
+    public struct Header: Codable {
         enum CodingKeys: String, CodingKey {
             case previousStateRoot = "previous_state_root"
             case transactionsRoot = "transactions_root"
             case metadata
         }
-        var previousStateRoot: String
-        var transactionsRoot: String
-        var metadata: Metadata
+        public var previousStateRoot: String
+        public var transactionsRoot: String
+        public var metadata: Metadata
     }
     
-    struct Metadata: Codable {
+    public struct Metadata: Codable {
         enum CodingKeys: String, CodingKey {
             case network, round, height, coinbaseTarget = "coinbase_target", proofTarget = "proof_target", timestamp
         }
-        var network: Int
-        var round: Int
-        var height: Int
-        var coinbaseTarget: Int
-        var proofTarget: Int
-        var timestamp: Int
+        public var network: Int
+        public var round: Int
+        public var height: Int
+        public var coinbaseTarget: Int
+        public var proofTarget: Int
+        public var timestamp: Int
     }
     
-    struct ConfirmedTransaction: Codable {
-        var type: String
-        var id: String
-        var transaction: Transaction
+    public struct ConfirmedTransaction: Codable {
+        public var type: String
+        public var id: String
+        public var transaction: Transaction
     }
     
-    struct Transaction: Codable {
-        var type: String
-        var id: String
-        var execution: Execution
+    public struct Transaction: Codable {
+        public var type: String
+        public var id: String
+        public var execution: Execution
     }
     
-    struct Execution: Codable {
-        var edition: Int
-        var transition: [Transition]?
+    public struct Execution: Codable {
+        public var edition: Int
+        public var transitions: [Transition]?
     }
     
-    struct Transition: Codable {
-        var id: String
-        var program: String
-        var function: String
-        var inputs: [Input]?
-        var outputs: [Output]?
-        var proof: String
-        var tpk: String
-        var tcm: String
-        var fee: Int
+    public struct Transition: Codable {
+        public var id: String
+        public var program: String
+        public var function: String
+        public var inputs: [Input]?
+        public var outputs: [Output]?
+        public var proof: String
+        public var tpk: String
+        public var tcm: String
+        public var fee: Int
     }
     
-    struct Input: Codable {
-        var type: String
-        var id: String
-        var tag: String?
-        var origin: Origin?
-        var value: String?
+    public struct Input: Codable {
+        public var type: String
+        public var id: String
+        public var tag: String?
+        public var origin: Origin?
+        public var value: String?
     }
     
-    struct Origin: Codable {
-        var commitment: String
+    public struct Origin: Codable {
+        public var commitment: String
     }
     
-    struct Output: Codable {
-        var type: String;
-        var id: String;
-        var checksum: String;
-        var value: String;
+    public struct Output: Codable {
+        public var type: String;
+        public var id: String;
+        public var checksum: String;
+        public var value: String;
     }
 }

@@ -2,7 +2,7 @@
 //  PrivateKeyCiphertextTests.swift
 //
 //
-//  Created by Nafeh Shoaib on 11/12/23.
+//  Created by Nafeh Shoaib on 11/2/23.
 //
 
 import XCTest
@@ -19,7 +19,7 @@ final class PrivateKeyCiphertextTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    func testPrivateKeyCiphertexttoandFromString() {
+    func testPrivateKeyCiphertexttoandFromString() throws {
         let privateKey = PrivateKey()
         let privateKeyCiphertext = PrivateKeyCiphertext(privateKey: privateKey, secret: "mypassword")!
         let privateKeyCiphertext2 = PrivateKeyCiphertext("\(privateKeyCiphertext)")
@@ -29,7 +29,7 @@ final class PrivateKeyCiphertextTests: XCTestCase {
     }
     
     
-    func testPrivateKeyFromStringDecryptionEdgeCases() {
+    func testPrivateKeyFromStringDecryptionEdgeCases() throws {
         let privateKey =
         PrivateKey("APrivateKey1zkpAYS46Dq4rnt9wdohyWMwdmjmTeMJKPZdp5AhvjXZDsVG")!
         let ciphertext = "ciphertext1qvqg7rgvam3xdcu55pwu6sl8rxwefxaj5gwthk0yzln6jv5fastzup0qn0qftqlqq7jcckyx03fzv9kke0z9puwd7cl7jzyhxfy2f2juplz39dkqs6p24urhxymhv364qm3z8mvyklv5gr52n4fxr2z59jgqytyddj8"
@@ -46,7 +46,7 @@ final class PrivateKeyCiphertextTests: XCTestCase {
     }
     
     
-    func testPrivateKeyCiphertextEncryptAndDecrypt() {
+    func testPrivateKeyCiphertextEncryptAndDecrypt() throws {
         let privateKey = PrivateKey()
         let privateKeyCiphertext = PrivateKeyCiphertext(privateKey: privateKey, secret: "mypassword")
         let recoveredPrivateKey = privateKeyCiphertext?.decryptToPrivateKey(using: "mypassword")
@@ -57,7 +57,7 @@ final class PrivateKeyCiphertextTests: XCTestCase {
     }
     
     
-    func testPrivateKeyCiphertextDoesntDecryptWithWrongPassword() {
+    func testPrivateKeyCiphertextDoesntDecryptWithWrongPassword() throws {
         let privateKey = PrivateKey()
         let privateKeyCiphertext = PrivateKeyCiphertext(privateKey: privateKey, secret: "mypassword")
         let recoveredPrivateKey = privateKeyCiphertext?.decryptToPrivateKey(using: "wrongpassword")
@@ -65,7 +65,7 @@ final class PrivateKeyCiphertextTests: XCTestCase {
     }
     
     
-    func testPrivateKeyCiphertextDoesntProduceSameCiphertextOnDifferentRuns() {
+    func testPrivateKeyCiphertextDoesntProduceSameCiphertextOnDifferentRuns() throws {
         let privateKey = PrivateKey()
         let privateKeyCiphertext = PrivateKeyCiphertext(privateKey: privateKey, secret: "mypassword")
         let privateKeyCiphertext2 = PrivateKeyCiphertext(privateKey: privateKey, secret: "mypassword")
@@ -78,7 +78,7 @@ final class PrivateKeyCiphertextTests: XCTestCase {
     }
     
     
-    func testPrivateKeyCiphertextEncryptedWithDifferentPasswordsMatch() {
+    func testPrivateKeyCiphertextEncryptedWithDifferentPasswordsMatch() throws {
         let privateKey = PrivateKey()
         let privateKeyCiphertext = PrivateKeyCiphertext(privateKey: privateKey, secret: "mypassword")
         let privateKeyCiphertext2 = PrivateKeyCiphertext(privateKey: privateKey, secret: "mypassword2")
@@ -91,7 +91,7 @@ final class PrivateKeyCiphertextTests: XCTestCase {
     }
     
     
-    func testPrivateKeyCiphertextDifferentPrivateKeysEncryptedWithSamePasswordDontMatch() {
+    func testPrivateKeyCiphertextDifferentPrivateKeysEncryptedWithSamePasswordDontMatch() throws {
         let privateKey = PrivateKey()
         let privateKey2 = PrivateKey()
         let privateKeyCiphertext = PrivateKeyCiphertext(privateKey: privateKey, secret: "mypassword")
@@ -105,7 +105,7 @@ final class PrivateKeyCiphertextTests: XCTestCase {
     }
     
     
-    func testPrivateKeyCiphertextDecryptsProperlyWhenFormedWithSecret() {
+    func testPrivateKeyCiphertextDecryptsProperlyWhenFormedWithSecret() throws {
         let privateKeyCiphertext1 = PrivateKey.newEncrypted(secret: "mypassword")!
         let privateKeyCiphertext2 = PrivateKey.newEncrypted(secret: "mypassword")!
         
@@ -132,7 +132,7 @@ final class PrivateKeyCiphertextTests: XCTestCase {
     }
     
     
-    func testPrivateKeyEncryptionFunctions() {
+    func testPrivateKeyEncryptionFunctions() throws {
         let privateKey = PrivateKey()
         let privateKeyCiphertext = privateKey.toCiphertext(secret: "mypassword")!
         let recoveredPrivateKey1 =

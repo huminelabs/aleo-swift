@@ -45,7 +45,7 @@ public struct Address: Equatable, LosslessStringConvertible {
     ///
     /// - Returns: String representation of the address.
     public func toString() -> String {
-        return rustAddress.r_to_string().toString()
+        rustAddress.r_to_string().toString()
     }
     
     /// Verify a signature for a message signed by the address.
@@ -54,7 +54,7 @@ public struct Address: Equatable, LosslessStringConvertible {
     ///    - message: Byte array representing a message signed by the address.
     ///    - signature: Signature to verify message.
     /// - Returns: Whether or not the signature is valid
-    public func verify(message: UnsafeBufferPointer<UInt8>, with signature: Signature) -> Bool {
-        return rustAddress.r_verify(message, signature.rustSignature)
+    public func verify(message: [UInt8], with signature: Signature) -> Bool {
+        rustAddress.r_verify(message.withUnsafeBufferPointer { $0 }, signature.rustSignature)
     }
 }

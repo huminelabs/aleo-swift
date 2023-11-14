@@ -34,7 +34,7 @@ public struct RecordCiphertext: LosslessStringConvertible {
     ///
     /// - Returns: String representation of the record ciphertext.
     public func toString() -> String {
-        self.rustRecordCiphertext.r_to_string().toString()
+        rustRecordCiphertext.r_to_string().toString()
     }
     
     /// Decrypt the record ciphertext into plaintext using the view key.
@@ -44,7 +44,7 @@ public struct RecordCiphertext: LosslessStringConvertible {
     /// - Parameter viewKey: View key used to decrypt the ciphertext.
     /// - Returns: Record plaintext object.
     public func decrypt(viewKey: ViewKey) -> RecordPlaintext? {
-        guard let rustRecordPlaintext = self.rustRecordCiphertext.r_decrypt(viewKey.rustViewKey) else {
+        guard let rustRecordPlaintext = rustRecordCiphertext.r_decrypt(viewKey.rustViewKey) else {
             return nil
         }
         
@@ -55,6 +55,6 @@ public struct RecordCiphertext: LosslessStringConvertible {
     ///
     /// - Parameter viewKey: View key used to decrypt the ciphertext.
     public func isOwner(viewKey: ViewKey) -> Bool {
-        return rustRecordCiphertext.r_is_owner(viewKey.rustViewKey)
+        rustRecordCiphertext.r_is_owner(viewKey.rustViewKey)
     }
 }
