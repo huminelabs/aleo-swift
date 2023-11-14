@@ -3,3 +3,4 @@
 /.swiftpm
 /.vscode
 .DS_Store
+AleoCore.xcframework
