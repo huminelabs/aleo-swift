@@ -1,4 +1,5 @@
 /target
 /.build
 /.swiftpm
+/.vscode
 .DS_Store
