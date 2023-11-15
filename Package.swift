@@ -12,8 +12,7 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "AleoCore",
-            url: "https://github.com/huminelabs/aleo-swift/releases/download/v0.1-alpha/AleoCore.xcframework.zip",
-            checksum: "e40d9f5a38980daa176737b3b67575eb1d850f0159783c95ff2294df03e69b19"
+            path: "AleoCore.xcframework"
         ),
         .target(
             name: "Aleo",
@@ -24,3 +23,4 @@ let package = Package(
         )
     ]
 )
+    

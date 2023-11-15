@@ -49,10 +49,10 @@ extension AleoCloudClient {
     public struct ConfirmedTransaction: Codable {
         public var type: String
         public var id: String
-        public var transaction: Transaction
+        public var transaction: CloudTransaction
     }
     
-    public struct Transaction: Codable {
+    public struct CloudTransaction: Codable {
         public var type: String
         public var id: String
         public var execution: Execution

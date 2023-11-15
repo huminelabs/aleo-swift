@@ -12,3 +12,6 @@ pub use key_pair::*;
 
 pub mod program;
 pub use program::*;
+
+pub mod manager;
+pub use manager::*;

@@ -28,7 +28,9 @@ swift-bridge-build = { git = "https://github.com/huminelabs/swift-bridge.git", b
 
 [dependencies]
 openssl = { version = "*", features = ["vendored"] }
-swift-bridge = { git = "https://github.com/huminelabs/swift-bridge.git", branch = "internal-generated-swift" }
+swift-bridge = { git = "https://github.com/huminelabs/swift-bridge.git", branch = "internal-generated-swift", features = [
+    "async",
+] }
 swift-bridge-build = { git = "https://github.com/huminelabs/swift-bridge.git", branch = "internal-generated-swift" }
 
 [dependencies.snarkvm-circuit-network]
@@ -52,6 +54,10 @@ version = "0.16.1"
 [dependencies.snarkvm-synthesizer]
 version = "0.16.1"
 features = ["async", "wasm"]
+
+[dependencies.snarkvm-synthesizer-program]
+version = "0.16.1"
+features = ["wasm"]
 
 [dependencies.snarkvm-wasm]
 version = "0.16.1"

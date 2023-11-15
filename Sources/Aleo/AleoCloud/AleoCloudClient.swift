@@ -195,26 +195,36 @@ public class AleoCloudClient: CloudService<AleoCloudHost, AleoCloudPath> {
         return try JSONDecoder().decode(String.self, from: data)
     }
     
-    public func getTransaction(id: String) async throws -> Transaction {
+    public func getTransaction(id: String) async throws -> CloudTransaction {
         let (data, _) = try await sendRequest(at: .transaction(id), using: .get)
         
-        return try JSONDecoder().decode(Transaction.self, from: data)
+        return try JSONDecoder().decode(CloudTransaction.self, from: data)
     }
     
-    public func getTransactions(height: Int) async throws -> [Transaction] {
+    public func getTransactions(height: Int) async throws -> [CloudTransaction] {
         let (data, _) = try await sendRequest(at: .blockTransactions(height), using: .get)
         
-        return try JSONDecoder().decode([Transaction].self, from: data)
+        return try JSONDecoder().decode([CloudTransaction].self, from: data)
     }
     
-    public func getTransactionsInMemoryPool() async throws -> [Transaction] {
+    public func getTransactionsInMemoryPool() async throws -> [CloudTransaction] {
         let (data, _) = try await sendRequest(at: .memoryPoolTransactions, using: .get)
         
-        return try JSONDecoder().decode([Transaction].self, from: data)
+        return try JSONDecoder().decode([CloudTransaction].self, from: data)
     }
     
     public func getTransitionID(usingInputOrOutID id: String) async throws -> String {
         let (data, _) = try await sendRequest(at: .latestHeight, using: .get)
+        
+        return try JSONDecoder().decode(String.self, from: data)
+    }
+    
+    public func submit(transaction: Transaction) async throws -> String {
+        let transactionString = transaction.toString()
+        
+        let payloadData = try JSONEncoder().encode(transactionString)
+        
+        let (data, _) = try await sendRequest(at: .transactionBroadcast, using: .post, body: payloadData)
         
         return try JSONDecoder().decode(String.self, from: data)
     }

@@ -118,6 +118,7 @@ dependencies = [
  "snarkvm-ledger-store",
  "snarkvm-parameters",
  "snarkvm-synthesizer",
+ "snarkvm-synthesizer-program",
  "snarkvm-wasm",
  "spmc",
  "swift-bridge",
@@ -2448,8 +2449,10 @@ name = "swift-bridge"
 version = "0.1.52"
 source = "git+https://github.com/huminelabs/swift-bridge.git?branch=internal-generated-swift#7c0954aa41090ddb1e2e95b1cf17d4ea8bd2cf04"
 dependencies = [
+ "once_cell",
  "swift-bridge-build",
  "swift-bridge-macro",
+ "tokio",
 ]
 
 [[package]]
@@ -2614,6 +2617,7 @@ dependencies = [
  "bytes",
  "libc",
  "mio",
+ "num_cpus",
  "pin-project-lite",
  "socket2 0.5.5",
  "windows-sys",

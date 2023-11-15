@@ -7,7 +7,7 @@
 
 import Foundation
 
-//protocol FunctionKeyProvider {
+public protocol FunctionKeyProvider {
 //    func functionKeys(proverURI: String?, verifierURI: String?, cacheKey: String?) -> FunctionKeyPair
-//}
+}
 

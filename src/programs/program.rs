@@ -3,6 +3,8 @@ use crate::types::native::{
 };
 
 use js_sys::{Array, Object, Reflect};
+use snarkvm_console::{network::Testnet3, program::Itertools};
+use snarkvm_synthesizer::{program::FunctionCore, Command};
 use std::{ops::Deref, str::FromStr};
 use wasm_bindgen::JsValue;
 
@@ -27,10 +29,11 @@ pub mod ffi_program {
         pub fn r_has_function(self: &RProgram, function_name: &str) -> bool;
 
         #[swift_bridge(associated_to = RProgram)]
-        pub fn r_get_functions(self: &RProgram) -> Vec<String>;
+        pub fn r_get_functions(self: &RProgram) -> String;
 
         #[swift_bridge(associated_to = RProgram)]
-        pub fn r_get_function_inputs(self: &RProgram, function_name: String) -> Option<String>;
+        pub fn r_get_function_inputs(self: &RProgram, function_name: String)
+            -> Option<Vec<String>>;
 
         #[swift_bridge(associated_to = RProgram)]
         pub fn r_get_mappings(self: &RProgram) -> Option<String>;
@@ -42,7 +45,7 @@ pub mod ffi_program {
         pub fn r_get_struct_members(self: &RProgram, struct_name: String) -> Option<String>;
 
         #[swift_bridge(associated_to = RProgram)]
-        pub fn r_get_credits_program() -> RProgram;
+        pub fn r_get_credits_program() -> Option<RProgram>;
 
         #[swift_bridge(associated_to = RProgram)]
         pub fn r_id(self: &RProgram) -> String;
@@ -51,7 +54,7 @@ pub mod ffi_program {
         pub fn r_is_equal(self: &RProgram, other: &RProgram) -> bool;
 
         #[swift_bridge(associated_to = RProgram)]
-        pub fn r_get_imports(self: &RProgram) -> Option<String>;
+        pub fn r_get_imports(self: &RProgram) -> Vec<String>;
     }
 }
 
@@ -62,6 +65,12 @@ pub mod ffi_program {
 /// javascript object for usage in creation of web forms for input capture.
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct RProgram(ProgramNative);
+
+// pub struct RProgramFunctionInput {
+//     plaintext: &PlaintextType<CurrentNetwork>,
+//     visibility: Option<String>,
+//     name: Option<String>,
+// }
 
 impl RProgram {
     /// Create a program from a program string
@@ -112,16 +121,13 @@ impl RProgram {
     /// const credits_program = aleo_wasm.Program.getCreditsProgram();
     /// const credits_functions = credits_program.getFunctions();
     /// console.log(credits_functions === expected_functions); // Output should be "true"
-    pub fn r_get_functions(&self) -> Vec<String> {
-        let array = self
-            .0
-            .functions()
-            .values()
-            .into_iter()
-            .map(|function| function.name().to_string().into())
-            .collect();
-
-        return array;
+    pub fn r_get_functions(&self) -> String {
+        let mut array: Vec<String> = Vec::with_capacity(self.0.functions().len() as usize);
+        self.0.functions().values().for_each(|function| {
+            let f = &function.name().to_string();
+            array.push(f.to_string());
+        });
+        return array.join(",");
     }
 
     /// Get a javascript object representation of the function inputs and types. This can be used
@@ -160,9 +166,19 @@ impl RProgram {
     /// const credits_program = aleo_wasm.Program.getCreditsProgram();
     /// const transfer_function_inputs = credits_program.getFunctionInputs("transfer_private");
     /// console.log(transfer_function_inputs === expected_inputs); // Output should be "true"
-    pub fn r_get_function_inputs(&self, function_name: String) -> Option<String> {
-        if let Some(array) = self.get_function_inputs(function_name).ok() {
-            array.to_string().as_string()
+    pub fn r_get_function_inputs(&self, function_name: String) -> Option<Vec<String>> {
+        if let Some(function_id) = IdentifierNative::from_str(&function_name).ok() {
+            if let Some(function) = self.0.functions().get(&function_id) {
+                Some(
+                    function
+                        .inputs()
+                        .iter()
+                        .map(|input| input.to_string())
+                        .collect(),
+                )
+            } else {
+                None
+            }
         } else {
             None
         }
@@ -526,8 +542,12 @@ impl RProgram {
     /// Get the credits.aleo program
     ///
     /// @returns {Program} The credits.aleo program
-    pub fn r_get_credits_program() -> RProgram {
-        RProgram::from(ProgramNative::credits().unwrap())
+    pub fn r_get_credits_program() -> Option<RProgram> {
+        if let Some(program) = ProgramNative::credits().ok() {
+            Some(RProgram::from(program))
+        } else {
+            None
+        }
     }
 
     /// Get the id of the program
@@ -567,8 +587,12 @@ impl RProgram {
     /// const program = aleo_wasm.Program.fromString(DOUBLE_TEST_PROGRAM);
     /// const imports = program.getImports();
     /// console.log(imports === expected_imports); // Output should be "true"
-    pub fn r_get_imports(&self) -> Option<String> {
-        self.get_imports().to_string().as_string()
+    pub fn r_get_imports(&self) -> Vec<String> {
+        self.0
+            .imports()
+            .values()
+            .map(|import| import.to_string())
+            .collect()
     }
 
     pub fn get_imports(&self) -> Array {
@@ -579,6 +603,70 @@ impl RProgram {
         imports
     }
 }
+
+// struct RProgramFunctionInputPlaintext {
+//     typeString: String,
+//     visibility: String,
+//     record: String,
+//     members: [RProgramMember],
+// }
+
+// struct RProgramMember {}
+
+// impl RProgramFunctionInput {
+//     pub fn r_get_type(&self) {
+//         match self.plaintext {
+//             PlaintextType::Array(array_type) => {
+//                 if let Some(name) = self.name {
+//                     Reflect::set(&input, &"name".into(), &name.into())
+//                         .map_err(|_| "Failed to set property")?;
+//                 }
+//                 Reflect::set(&input, &"type".into(), &"array".into())
+//                     .map_err(|_| "Failed to set property")?;
+
+//                 // Set the element types of the Array and record the length
+//                 let element_type =
+//                     self.get_plaintext_input(array_type.base_element_type(), None, None)?;
+//                 let length = **array_type.length();
+//                 Reflect::set(&input, &"element_type".into(), &element_type)
+//                     .map_err(|_| "Failed to set property")?;
+//                 Reflect::set(&input, &"length".into(), &length.into())
+//                     .map_err(|_| "Failed to set property")?;
+//             }
+//             PlaintextType::Literal(literal_type) => {
+//                 if let Some(name) = self.name {
+//                     Reflect::set(&input, &"name".into(), &name.into())
+//                         .map_err(|_| "Failed to set property")?;
+//                 }
+//                 let value_type = JsValue::from_str(&literal_type.to_string());
+//                 Reflect::set(&input, &"type".into(), &value_type)
+//                     .map_err(|_| "Failed to set property")?;
+//             }
+//             PlaintextType::Struct(struct_id) => {
+//                 let struct_name = struct_id.to_string();
+//                 if let Some(name) = self.name {
+//                     Reflect::set(&input, &"name".into(), &name.into())
+//                         .map_err(|_| "Failed to set property")?;
+//                 }
+//                 Reflect::set(&input, &"type".into(), &"struct".into())
+//                     .map_err(|_| "Failed to set property")?;
+//                 Reflect::set(&input, &"struct_id".into(), &struct_name.as_str().into())
+//                     .map_err(|_| "Failed to set property")?;
+//                 let inputs = self.get_struct_members(struct_name)?;
+//                 Reflect::set(&input, &"members".into(), &inputs.into())
+//                     .map_err(|_| "Failed to set property")?;
+//             }
+//         }
+//     }
+
+//     pub fn r_get_visibility(&self) -> String {}
+
+//     pub fn r_get_record(&self) -> String {}
+
+//     pub fn r_get_members(&self) -> Vec<RProgramMember> {}
+
+//     pub fn r_get_register(&self) -> String {}
+// }
 
 impl Deref for RProgram {
     type Target = ProgramNative;
