@@ -1431,81 +1431,6 @@ extension RProgram: Vectorizable {
 
 
 
-internal class RTransactionWrapper: RTransactionWrapperRefMut {
-    var isOwned: Bool = true
-
-    internal override init(ptr: UnsafeMutableRawPointer) {
-        super.init(ptr: ptr)
-    }
-
-    deinit {
-        if isOwned {
-            __swift_bridge__$RTransactionWrapper$_free(ptr)
-        }
-    }
-}
-internal class RTransactionWrapperRefMut: RTransactionWrapperRef {
-    internal override init(ptr: UnsafeMutableRawPointer) {
-        super.init(ptr: ptr)
-    }
-}
-internal class RTransactionWrapperRef {
-    var ptr: UnsafeMutableRawPointer
-
-    internal init(ptr: UnsafeMutableRawPointer) {
-        self.ptr = ptr
-    }
-}
-extension RTransactionWrapper: Vectorizable {
-    internal static func vecOfSelfNew() -> UnsafeMutableRawPointer {
-        __swift_bridge__$Vec_RTransactionWrapper$new()
-    }
-
-    internal static func vecOfSelfFree(vecPtr: UnsafeMutableRawPointer) {
-        __swift_bridge__$Vec_RTransactionWrapper$drop(vecPtr)
-    }
-
-    internal static func vecOfSelfPush(vecPtr: UnsafeMutableRawPointer, value: RTransactionWrapper) {
-        __swift_bridge__$Vec_RTransactionWrapper$push(vecPtr, {value.isOwned = false; return value.ptr;}())
-    }
-
-    internal static func vecOfSelfPop(vecPtr: UnsafeMutableRawPointer) -> Optional<Self> {
-        let pointer = __swift_bridge__$Vec_RTransactionWrapper$pop(vecPtr)
-        if pointer == nil {
-            return nil
-        } else {
-            return (RTransactionWrapper(ptr: pointer!) as! Self)
-        }
-    }
-
-    internal static func vecOfSelfGet(vecPtr: UnsafeMutableRawPointer, index: UInt) -> Optional<RTransactionWrapperRef> {
-        let pointer = __swift_bridge__$Vec_RTransactionWrapper$get(vecPtr, index)
-        if pointer == nil {
-            return nil
-        } else {
-            return RTransactionWrapperRef(ptr: pointer!)
-        }
-    }
-
-    internal static func vecOfSelfGetMut(vecPtr: UnsafeMutableRawPointer, index: UInt) -> Optional<RTransactionWrapperRefMut> {
-        let pointer = __swift_bridge__$Vec_RTransactionWrapper$get_mut(vecPtr, index)
-        if pointer == nil {
-            return nil
-        } else {
-            return RTransactionWrapperRefMut(ptr: pointer!)
-        }
-    }
-
-    internal static func vecOfSelfAsPtr(vecPtr: UnsafeMutableRawPointer) -> UnsafePointer<RTransactionWrapperRef> {
-        UnsafePointer<RTransactionWrapperRef>(OpaquePointer(__swift_bridge__$Vec_RTransactionWrapper$as_ptr(vecPtr)))
-    }
-
-    internal static func vecOfSelfLen(vecPtr: UnsafeMutableRawPointer) -> UInt {
-        __swift_bridge__$Vec_RTransactionWrapper$len(vecPtr)
-    }
-}
-
-
 internal class RKVPair: RKVPairRefMut {
     var isOwned: Bool = true
 
@@ -1517,6 +1442,11 @@ internal class RKVPair: RKVPairRefMut {
         if isOwned {
             __swift_bridge__$RKVPair$_free(ptr)
         }
+    }
+}
+extension RKVPair {
+    internal convenience init<GenericIntoRustString: IntoRustString>(_ key: GenericIntoRustString, _ value: GenericIntoRustString) {
+        self.init(ptr: __swift_bridge__$RKVPair$r_new({ let rustString = key.intoRustString(); rustString.isOwned = false; return rustString.ptr }(), { let rustString = value.intoRustString(); rustString.isOwned = false; return rustString.ptr }()))
     }
 }
 internal class RKVPairRefMut: RKVPairRef {
@@ -1595,8 +1525,8 @@ internal class RHashMapStrings: RHashMapStringsRefMut {
     }
 }
 extension RHashMapStrings {
-    class internal func new(_ vector: RustVec<RKVPair>) -> RHashMapStrings {
-        RHashMapStrings(ptr: __swift_bridge__$RHashMapStrings$new({ let val = vector; val.isOwned = false; return val.ptr }()))
+    internal convenience init(_ vector: RustVec<RKVPair>) {
+        self.init(ptr: __swift_bridge__$RHashMapStrings$r_new({ let val = vector; val.isOwned = false; return val.ptr }()))
     }
 }
 internal class RHashMapStringsRefMut: RHashMapStringsRef {
@@ -1675,10 +1605,10 @@ internal class RProgramManager: RProgramManagerRefMut {
     }
 }
 extension RProgramManager {
-    class internal func r_execute<GenericToRustStr: ToRustStr, GenericIntoRustString: IntoRustString>(_ private_key: RPrivateKeyRef, _ program: GenericToRustStr, _ function: GenericToRustStr, _ inputs: RustVec<GenericIntoRustString>, _ fee_credits: Double, _ fee_record: Optional<RRecordPlaintext>, _ url: Optional<GenericIntoRustString>, _ imports: Optional<RHashMapStrings>, _ proving_key: Optional<RProvingKey>, _ verifying_key: Optional<RVerifyingKey>, _ fee_proving_key: Optional<RProvingKey>, _ fee_verifying_key: Optional<RVerifyingKey>) throws -> RTransaction {
+    class internal func r_execute<GenericToRustStr: ToRustStr, GenericIntoRustString: IntoRustString>(_ private_key: RPrivateKeyRef, _ program: GenericToRustStr, _ function: GenericToRustStr, _ inputs: RustVec<GenericIntoRustString>, _ fee_credits: Double, _ fee_record: Optional<RRecordPlaintext>, _ url: Optional<GenericIntoRustString>, _ imports: Optional<RHashMapStrings>, _ proving_key: Optional<RProvingKey>, _ verifying_key: Optional<RVerifyingKey>, _ fee_proving_key: Optional<RProvingKey>, _ fee_verifying_key: Optional<RVerifyingKey>) -> Optional<RTransaction> {
         return function.toRustStr({ functionAsRustStr in
             return program.toRustStr({ programAsRustStr in
-            try { let val = __swift_bridge__$RProgramManager$r_execute(private_key.ptr, programAsRustStr, functionAsRustStr, { let val = inputs; val.isOwned = false; return val.ptr }(), fee_credits, { if let val = fee_record { val.isOwned = false; return val.ptr } else { return nil } }(), { if let rustString = optionalStringIntoRustString(url) { rustString.isOwned = false; return rustString.ptr } else { return nil } }(), { if let val = imports { val.isOwned = false; return val.ptr } else { return nil } }(), { if let val = proving_key { val.isOwned = false; return val.ptr } else { return nil } }(), { if let val = verifying_key { val.isOwned = false; return val.ptr } else { return nil } }(), { if let val = fee_proving_key { val.isOwned = false; return val.ptr } else { return nil } }(), { if let val = fee_verifying_key { val.isOwned = false; return val.ptr } else { return nil } }()); if val.is_ok { return RTransaction(ptr: val.ok_or_err!) } else { throw RustString(ptr: val.ok_or_err!) } }()
+            { let val = __swift_bridge__$RProgramManager$r_execute(private_key.ptr, programAsRustStr, functionAsRustStr, { let val = inputs; val.isOwned = false; return val.ptr }(), fee_credits, { if let val = fee_record { val.isOwned = false; return val.ptr } else { return nil } }(), { if let rustString = optionalStringIntoRustString(url) { rustString.isOwned = false; return rustString.ptr } else { return nil } }(), { if let val = imports { val.isOwned = false; return val.ptr } else { return nil } }(), { if let val = proving_key { val.isOwned = false; return val.ptr } else { return nil } }(), { if let val = verifying_key { val.isOwned = false; return val.ptr } else { return nil } }(), { if let val = fee_proving_key { val.isOwned = false; return val.ptr } else { return nil } }(), { if let val = fee_verifying_key { val.isOwned = false; return val.ptr } else { return nil } }()); if val != nil { return RTransaction(ptr: val!) } else { return nil } }()
         })
         })
     }

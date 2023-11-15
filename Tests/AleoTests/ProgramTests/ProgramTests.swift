@@ -61,7 +61,8 @@ final class ProgramTests: XCTestCase {
     }
     
     func testBuildTransaction() async throws {
-        
+        let privateKey = PrivateKey()
+        let transaction = ProgramManager.execute(privateKey: privateKey, program: "hello_hello.aleo", function: "hello_hello", inputs: ["5u32", "5u32"], feeCredits: 0.020, feeRecord: <#T##RecordPlaintext#>, url: nil, imports: [], provingKey: nil, verifyingKey: nil, feeProvingKey: nil, feeVerifyingKey: nil)
     }
 
 }

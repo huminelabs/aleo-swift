@@ -10,8 +10,8 @@ import Foundation
 /// Swift <-> Rust Representation of an Aleo program
 ///
 /// This object is required to create an Execution or Deployment transaction. It includes several convenience methods for enumerating available functions and each functions' inputs in a Swift for usage in creation of web forms for input capture.
-public struct Program: Equatable, LosslessStringConvertible {
-    
+private struct Program: Equatable, LosslessStringConvertible {
+
     internal var rustProgram: RProgram
     
     internal init(rustProgram: RProgram) {
