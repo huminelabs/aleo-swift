@@ -1,5 +1,5 @@
 //
-//  AleoCloudClient+Models.swift
+//  NetworkClient+Models.swift
 //
 //
 //  Created by Nafeh Shoaib on 11/08/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension AleoCloudClient {
+extension NetworkClient {
     public struct Block: Codable {
         enum CodingKeys: String, CodingKey {
             case blockHash = "block_hash"
@@ -49,10 +49,10 @@ extension AleoCloudClient {
     public struct ConfirmedTransaction: Codable {
         public var type: String
         public var id: String
-        public var transaction: CloudTransaction
+        public var transaction: NetworkTransaction
     }
     
-    public struct CloudTransaction: Codable {
+    public struct NetworkTransaction: Codable {
         public var type: String
         public var id: String
         public var execution: Execution

@@ -39,7 +39,15 @@ final class ProgramTests: XCTestCase {
         cast r0 r1.microcredits r1.amount r2 into r3 as Token.record;
         output r3 as Token.record;
     """
-
+    
+    let recordString = """
+    {
+      owner: aleo1j7qxyunfldj2lp8hsvy7mw5k8zaqgjfyr72x2gh3x4ewgae8v5gscf5jh3.private,
+      microcredits: 1500000000000000u64.private,
+      _nonce: 3077450429259593211617823051143573281856129402760267155982965992208217472983group.public
+    }
+    """
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -48,21 +56,21 @@ final class ProgramTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        guard let program = Program.creditsProgram else {
-            fatalError()
-        }
-        
-        let f = program.functions
-        print("fArray: \(f)")
-//        print("""
-//        Program mappings: \(program?.mappings?.map({ $0.name }).joined(separator: ","))
-//        """)
-    }
-    
-    func testBuildTransaction() async throws {
-        let privateKey = PrivateKey()
-        let transaction = ProgramManager.execute(privateKey: privateKey, program: "hello_hello.aleo", function: "hello_hello", inputs: ["5u32", "5u32"], feeCredits: 0.020, feeRecord: <#T##RecordPlaintext#>, url: nil, imports: [], provingKey: nil, verifyingKey: nil, feeProvingKey: nil, feeVerifyingKey: nil)
-    }
+//    func testExample() throws {
+//        guard let program = Program.creditsProgram else {
+//            fatalError()
+//        }
+//        
+//        let f = program.functions
+//        print("fArray: \(f)")
+////        print("""
+////        Program mappings: \(program?.mappings?.map({ $0.name }).joined(separator: ","))
+////        """)
+//    }
+//    
+//    func testBuildTransaction() async throws {
+//        let privateKey = PrivateKey()
+//        let transaction = ProgramManager.execute(privateKey: privateKey, program: "hello_hello.aleo", function: "hello_hello", inputs: ["5u32", "5u32"], feeCredits: 0.020, feeRecord: RecordPlaintext(recordString), url: nil, imports: [], provingKey: nil, verifyingKey: nil, feeProvingKey: nil, feeVerifyingKey: nil)
+//    }
 
 }

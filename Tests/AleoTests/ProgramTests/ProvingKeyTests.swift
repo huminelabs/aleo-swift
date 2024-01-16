@@ -7,29 +7,42 @@
 
 import XCTest
 
+@testable import Aleo
+
 final class ProvingKeyTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    var provingKeyData: Data!
+    var provingKeyBase: ProvingKey!
+    
+    override func setUp() async throws {
+        let (data, _) = try await URLSession.shared.data(from: URL(string: "https://testnet3.parameters.aleo.org/join.prover.30895cc")!)
+        
+        self.provingKeyData = data
+        self.provingKeyBase = ProvingKey(data)
     }
-
+    
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testProvingKeyRoundtrip() async throws {
+        let provingKey = ProvingKey(provingKeyData)
+        let data = provingKey!.toBytes()!
+        
+        for (a, b) in zip(provingKeyData, data) {
+            XCTAssertEqual(a, b)
         }
     }
-
+    
+    func testFromString() async throws {
+        let options = XCTMeasureOptions()
+        options.iterationCount = 1
+        
+//        self.measure(options: options) {
+            let string = "\(provingKeyBase!)"
+            let fromString = ProvingKey(string)
+            
+            XCTAssertEqual(string, fromString?.toString())
+//        }
+    }
 }

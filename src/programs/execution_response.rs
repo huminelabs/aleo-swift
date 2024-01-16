@@ -3,7 +3,7 @@ use crate::types::native::{
     ProvingKeyNative, ResponseNative, VerifyingKeyNative,
 };
 
-use crate::{Execution, KeyPair, Program, ProvingKey, VerifyingKey};
+use crate::{RExecution, RKeyPair, RProgram, RProvingKey, RVerifyingKey};
 use std::{ops::Deref, str::FromStr};
 
 /// Webassembly Representation of an Aleo function execution response
@@ -69,7 +69,7 @@ impl RExecutionResponse {
     /// Get the outputs of the executed function
     ///
     /// @returns {Array} Array of strings representing the outputs of the function
-    pub fn get_outputs(&self) -> js_sys::Array {
+    pub fn r_get_outputs(&self) -> Vec<String> {
         let array = js_sys::Array::new_with_length(0u32);
         self.response
             .outputs()
@@ -84,16 +84,16 @@ impl RExecutionResponse {
     /// Returns the execution object if present, null if otherwise.
     ///
     /// @returns {Execution | undefined} The execution object if present, null if otherwise
-    pub fn get_execution(&self) -> Option<Execution> {
+    pub fn r_get_execution(&self) -> Option<Execution> {
         self.execution.clone().map(Execution::from)
     }
 
     /// Returns the program keys if present
-    pub fn get_keys(&mut self) -> Result<KeyPair, String> {
+    pub fn r_get_keys(&mut self) -> Result<RKeyPair, String> {
         if let Some(proving_key) = self.proving_key.take() {
-            Ok(KeyPair::new(
-                ProvingKey::from(proving_key),
-                VerifyingKey::from(self.verifying_key.clone()),
+            Ok(RKeyPair::r_new(
+                RProvingKey::from(proving_key),
+                RVerifyingKey::from(self.verifying_key.clone()),
             ))
         } else {
             Err("No proving key found".to_string())
@@ -105,24 +105,24 @@ impl RExecutionResponse {
     /// function. Subsequent calls will return null.
     ///
     /// @returns {ProvingKey | undefined} The proving key
-    pub fn get_proving_key(&mut self) -> Option<ProvingKey> {
-        self.proving_key.take().map(ProvingKey::from)
+    pub fn r_get_proving_key(&mut self) -> Option<RProvingKey> {
+        self.proving_key.take().map(RProvingKey::from)
     }
 
     /// Returns the verifying_key associated with the program
     ///
     /// @returns {VerifyingKey} The verifying key
-    pub fn get_verifying_key(&self) -> VerifyingKey {
-        VerifyingKey::from(self.verifying_key.clone())
+    pub fn r_get_verifying_key(&self) -> RVerifyingKey {
+        RVerifyingKey::from(self.verifying_key.clone())
     }
 
     /// Returns the function identifier
-    pub fn get_function_id(&self) -> String {
+    pub fn r_get_function_id(&self) -> String {
         format!("{:?}", self.function_id)
     }
 
     /// Returns the program
-    pub fn get_program(&self) -> Program {
-        Program::from(self.program.clone())
+    pub fn r_get_program(&self) -> RProgram {
+        RProgram::from(self.program.clone())
     }
 }

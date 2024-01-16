@@ -1,13 +1,13 @@
 //
-//  ProgramManager.swift
-//  
+//  CoreProgramManager.swift
+//
 //
 //  Created by Nafeh Shoaib on 11/15/23.
 //
 
 import Foundation
 
-private struct CoreProgramManager {
+public struct CoreProgramManager {
     internal var rustProgramManager: RProgramManager
     
     internal init(rustProgramManager: RProgramManager) {
@@ -20,7 +20,7 @@ private struct CoreProgramManager {
         function: String,
         inputs: [String],
         feeCredits: Float,
-        feeRecord: RecordPlaintext,
+        feeRecord: RecordPlaintext?,
         url: String?,
         imports: [String: String] = [:],
         provingKey: ProvingKey?,
@@ -35,7 +35,7 @@ private struct CoreProgramManager {
             inputVector.push(value: .init(i))
         }
         
-        guard let transaction = RProgramManager.r_execute(privateKey.rustPrivateKey, program, function, inputVector, Double(feeCredits), feeRecord.rustRecordPlaintext, url?.intoRustString(), imports, provingKey?.rustProvingKey, verifyingKey?.rustVerifyingKey, feeProvingKey?.rustProvingKey, feeVerifyingKey?.rustVerifyingKey) else {
+        guard let transaction = RProgramManager.r_execute(privateKey.rustPrivateKey, program, function, inputVector, Double(feeCredits), feeRecord?.rustRecordPlaintext, url?.intoRustString(), imports, provingKey?.rustProvingKey, verifyingKey?.rustVerifyingKey, feeProvingKey?.rustProvingKey, feeVerifyingKey?.rustVerifyingKey) else {
             return nil
         }
         

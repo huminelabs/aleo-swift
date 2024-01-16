@@ -1,5 +1,5 @@
 //
-//  AleoCloudError.swift
+//  NetworkError.swift
 //
 //
 //  Created by Nafeh Shoaib on 11/08/23.
@@ -9,7 +9,7 @@ import Foundation
 
 import SwiftCloud
 
-public enum AleoCloudError: Error, LocalizedError {
+public enum NetworkError: Error, LocalizedError {
     case startHeightLessThanZero, cannotParsePrivateKey, privateKeyNotFound, heightError
     
     public var errorDescription: String? {

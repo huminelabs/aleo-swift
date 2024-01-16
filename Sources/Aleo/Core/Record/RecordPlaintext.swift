@@ -40,8 +40,8 @@ public struct RecordPlaintext: LosslessStringConvertible {
     /// Returns the amount of microcredits in the record.
     ///
     /// - Returns: Amount of microcredits in the record.
-    public var microcredits: Int {
-        return Int(rustRecordPlaintext.r_microcredits())
+    public var microcredits: Float {
+        return Float(rustRecordPlaintext.r_microcredits())
     }
     
     /// Returns the nonce of the record.
