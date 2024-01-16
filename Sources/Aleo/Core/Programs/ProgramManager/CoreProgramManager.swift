@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  ProgramManager.swift
 //  
 //
 //  Created by Nafeh Shoaib on 11/15/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-private struct ProgramManager {
+private struct CoreProgramManager {
     internal var rustProgramManager: RProgramManager
     
     internal init(rustProgramManager: RProgramManager) {
@@ -28,20 +28,14 @@ private struct ProgramManager {
         feeProvingKey: ProvingKey?,
         feeVerifyingKey: VerifyingKey?
     ) async throws -> Transaction? {
-        var pairVector = RustVec<RKVPair>()
-        imports.forEach { k, v in
-            let pair = RKVPair(k, v)
-            pairVector.push(value: pair)
-        }
-        
-        let importsMap = RHashMapStrings(pairVector)
+        let imports = RStringMap(dictionaryLiteral: imports)
         
         var inputVector = RustVec<RustString>()
         inputs.forEach { i in
             inputVector.push(value: .init(i))
         }
         
-        guard let transaction = RProgramManager.r_execute(privateKey.rustPrivateKey, program, function, inputVector, Double(feeCredits), feeRecord.rustRecordPlaintext, url?.intoRustString(), importsMap, provingKey?.rustProvingKey, verifyingKey?.rustVerifyingKey, feeProvingKey?.rustProvingKey, feeVerifyingKey?.rustVerifyingKey) else {
+        guard let transaction = RProgramManager.r_execute(privateKey.rustPrivateKey, program, function, inputVector, Double(feeCredits), feeRecord.rustRecordPlaintext, url?.intoRustString(), imports, provingKey?.rustProvingKey, verifyingKey?.rustVerifyingKey, feeProvingKey?.rustProvingKey, feeVerifyingKey?.rustVerifyingKey) else {
             return nil
         }
         
