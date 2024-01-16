@@ -898,6 +898,12 @@ extension RProvingKey {
     class internal func r_from_bytes(_ bytes: UnsafeBufferPointer<UInt8>) -> Optional<RProvingKey> {
         { let val = __swift_bridge__$RProvingKey$r_from_bytes(bytes.toFfiSlice()); if val != nil { return RProvingKey(ptr: val!) } else { return nil } }()
     }
+
+    class internal func r_from_string<GenericToRustStr: ToRustStr>(_ string: GenericToRustStr) -> Optional<RProvingKey> {
+        return string.toRustStr({ stringAsRustStr in
+            { let val = __swift_bridge__$RProvingKey$r_from_string(stringAsRustStr); if val != nil { return RProvingKey(ptr: val!) } else { return nil } }()
+        })
+    }
 }
 internal class RProvingKeyRefMut: RProvingKeyRef {
     internal override init(ptr: UnsafeMutableRawPointer) {
@@ -916,8 +922,68 @@ extension RProvingKeyRef {
         { let val = __swift_bridge__$RProvingKey$r_to_bytes(ptr); if val != nil { return RustVec(ptr: val!) } else { return nil } }()
     }
 
+    internal func r_to_string() -> RustString {
+        RustString(ptr: __swift_bridge__$RProvingKey$r_to_string(ptr))
+    }
+
     internal func r_copy() -> RProvingKey {
         RProvingKey(ptr: __swift_bridge__$RProvingKey$r_copy(ptr))
+    }
+
+    internal func r_is_bond_public_prover() -> Bool {
+        __swift_bridge__$RProvingKey$r_is_bond_public_prover(ptr)
+    }
+
+    internal func r_is_claim_unbond_public_prover() -> Bool {
+        __swift_bridge__$RProvingKey$r_is_claim_unbond_public_prover(ptr)
+    }
+
+    internal func r_is_fee_private_prover() -> Bool {
+        __swift_bridge__$RProvingKey$r_is_fee_private_prover(ptr)
+    }
+
+    internal func r_is_fee_public_prover() -> Bool {
+        __swift_bridge__$RProvingKey$r_is_fee_public_prover(ptr)
+    }
+
+    internal func r_is_inclusion_prover() -> Bool {
+        __swift_bridge__$RProvingKey$r_is_inclusion_prover(ptr)
+    }
+
+    internal func r_is_join_prover() -> Bool {
+        __swift_bridge__$RProvingKey$r_is_join_prover(ptr)
+    }
+
+    internal func r_is_set_validator_state_prover() -> Bool {
+        __swift_bridge__$RProvingKey$r_is_set_validator_state_prover(ptr)
+    }
+
+    internal func r_is_split_prover() -> Bool {
+        __swift_bridge__$RProvingKey$r_is_split_prover(ptr)
+    }
+
+    internal func r_is_transfer_private_prover() -> Bool {
+        __swift_bridge__$RProvingKey$r_is_transfer_private_prover(ptr)
+    }
+
+    internal func r_is_transfer_private_to_public_prover() -> Bool {
+        __swift_bridge__$RProvingKey$r_is_transfer_private_to_public_prover(ptr)
+    }
+
+    internal func r_is_transfer_public_prover() -> Bool {
+        __swift_bridge__$RProvingKey$r_is_transfer_public_prover(ptr)
+    }
+
+    internal func r_is_transfer_public_to_private_prover() -> Bool {
+        __swift_bridge__$RProvingKey$r_is_transfer_public_to_private_prover(ptr)
+    }
+
+    internal func r_is_unbond_delegator_as_validator_prover() -> Bool {
+        __swift_bridge__$RProvingKey$r_is_unbond_delegator_as_validator_prover(ptr)
+    }
+
+    internal func r_is_unbond_public_prover() -> Bool {
+        __swift_bridge__$RProvingKey$r_is_unbond_public_prover(ptr)
     }
 }
 extension RProvingKeyRef: Equatable {
@@ -1024,6 +1090,118 @@ extension RVerifyingKeyRef {
 
     internal func r_copy() -> RVerifyingKey {
         RVerifyingKey(ptr: __swift_bridge__$RVerifyingKey$r_copy(ptr))
+    }
+
+    class internal func r_bond_public_verifier() -> RVerifyingKey {
+        RVerifyingKey(ptr: __swift_bridge__$RVerifyingKey$r_bond_public_verifier())
+    }
+
+    class internal func r_claim_unbond_public_verifier() -> RVerifyingKey {
+        RVerifyingKey(ptr: __swift_bridge__$RVerifyingKey$r_claim_unbond_public_verifier())
+    }
+
+    class internal func r_fee_private_verifier() -> RVerifyingKey {
+        RVerifyingKey(ptr: __swift_bridge__$RVerifyingKey$r_fee_private_verifier())
+    }
+
+    class internal func r_fee_public_verifier() -> RVerifyingKey {
+        RVerifyingKey(ptr: __swift_bridge__$RVerifyingKey$r_fee_public_verifier())
+    }
+
+    class internal func r_inclusion_verifier() -> RVerifyingKey {
+        RVerifyingKey(ptr: __swift_bridge__$RVerifyingKey$r_inclusion_verifier())
+    }
+
+    class internal func r_join_verifier() -> RVerifyingKey {
+        RVerifyingKey(ptr: __swift_bridge__$RVerifyingKey$r_join_verifier())
+    }
+
+    class internal func r_set_validator_state_verifier() -> RVerifyingKey {
+        RVerifyingKey(ptr: __swift_bridge__$RVerifyingKey$r_set_validator_state_verifier())
+    }
+
+    class internal func r_split_verifier() -> RVerifyingKey {
+        RVerifyingKey(ptr: __swift_bridge__$RVerifyingKey$r_split_verifier())
+    }
+
+    class internal func r_transfer_private_verifier() -> RVerifyingKey {
+        RVerifyingKey(ptr: __swift_bridge__$RVerifyingKey$r_transfer_private_verifier())
+    }
+
+    class internal func r_transfer_private_to_public_verifier() -> RVerifyingKey {
+        RVerifyingKey(ptr: __swift_bridge__$RVerifyingKey$r_transfer_private_to_public_verifier())
+    }
+
+    class internal func r_transfer_public_verifier() -> RVerifyingKey {
+        RVerifyingKey(ptr: __swift_bridge__$RVerifyingKey$r_transfer_public_verifier())
+    }
+
+    class internal func r_transfer_public_to_private_verifier() -> RVerifyingKey {
+        RVerifyingKey(ptr: __swift_bridge__$RVerifyingKey$r_transfer_public_to_private_verifier())
+    }
+
+    class internal func r_unbond_delegator_as_validator_verifier() -> RVerifyingKey {
+        RVerifyingKey(ptr: __swift_bridge__$RVerifyingKey$r_unbond_delegator_as_validator_verifier())
+    }
+
+    class internal func r_unbond_public_verifier() -> RVerifyingKey {
+        RVerifyingKey(ptr: __swift_bridge__$RVerifyingKey$r_unbond_public_verifier())
+    }
+
+    internal func r_is_bond_public_verifier() -> Bool {
+        __swift_bridge__$RVerifyingKey$r_is_bond_public_verifier(ptr)
+    }
+
+    internal func r_is_claim_unbond_public_verifier() -> Bool {
+        __swift_bridge__$RVerifyingKey$r_is_claim_unbond_public_verifier(ptr)
+    }
+
+    internal func r_is_fee_private_verifier() -> Bool {
+        __swift_bridge__$RVerifyingKey$r_is_fee_private_verifier(ptr)
+    }
+
+    internal func r_is_fee_public_verifier() -> Bool {
+        __swift_bridge__$RVerifyingKey$r_is_fee_public_verifier(ptr)
+    }
+
+    internal func r_is_inclusion_verifier() -> Bool {
+        __swift_bridge__$RVerifyingKey$r_is_inclusion_verifier(ptr)
+    }
+
+    internal func r_is_join_verifier() -> Bool {
+        __swift_bridge__$RVerifyingKey$r_is_join_verifier(ptr)
+    }
+
+    internal func r_is_set_validator_state_verifier() -> Bool {
+        __swift_bridge__$RVerifyingKey$r_is_set_validator_state_verifier(ptr)
+    }
+
+    internal func r_is_split_verifier() -> Bool {
+        __swift_bridge__$RVerifyingKey$r_is_split_verifier(ptr)
+    }
+
+    internal func r_is_transfer_private_verifier() -> Bool {
+        __swift_bridge__$RVerifyingKey$r_is_transfer_private_verifier(ptr)
+    }
+
+    internal func r_is_transfer_private_to_public_verifier() -> Bool {
+        __swift_bridge__$RVerifyingKey$r_is_transfer_private_to_public_verifier(ptr)
+    }
+
+    internal func r_is_transfer_public_verifier() -> Bool {
+        __swift_bridge__$RVerifyingKey$r_is_transfer_public_verifier(ptr)
+    }
+
+    internal func r_is_transfer_public_to_private_verifier() -> Bool {
+        __swift_bridge__$RVerifyingKey$r_is_transfer_public_to_private_verifier(ptr)
+    }
+
+    internal func r_is_unbond_delegator_as_validator_verifier() -> Bool {
+        __swift_bridge__$RVerifyingKey$r_is_unbond_delegator_as_validator_verifier(ptr)
+    }
+
+    internal func r_is_unbond_public_verifier() -> Bool {
+        __swift_bridge__$RVerifyingKey$r_is_unbond_public_verifier(ptr)
     }
 }
 extension RVerifyingKeyRef: Equatable {
@@ -1280,11 +1458,7 @@ extension RKeyPair: Vectorizable {
 
 
 
-
-
-
-
-internal class RProgram: RProgramRefMut {
+internal class RStringMap: RStringMapRefMut {
     var isOwned: Bool = true
 
     internal override init(ptr: UnsafeMutableRawPointer) {
@@ -1293,127 +1467,193 @@ internal class RProgram: RProgramRefMut {
 
     deinit {
         if isOwned {
-            __swift_bridge__$RProgram$_free(ptr)
+            __swift_bridge__$RStringMap$_free(ptr)
         }
     }
 }
-extension RProgram {
-    class internal func r_from_string<GenericToRustStr: ToRustStr>(_ program: GenericToRustStr) -> Optional<RProgram> {
-        return program.toRustStr({ programAsRustStr in
-            { let val = __swift_bridge__$RProgram$r_from_string(programAsRustStr); if val != nil { return RProgram(ptr: val!) } else { return nil } }()
-        })
+extension RStringMap {
+    internal convenience init() {
+        self.init(ptr: __swift_bridge__$RStringMap$r_new())
     }
 }
-internal class RProgramRefMut: RProgramRef {
+internal class RStringMapRefMut: RStringMapRef {
     internal override init(ptr: UnsafeMutableRawPointer) {
         super.init(ptr: ptr)
     }
 }
-internal class RProgramRef {
+extension RStringMapRefMut {
+    internal func r_insert<GenericIntoRustString: IntoRustString>(_ key: GenericIntoRustString, _ value: GenericIntoRustString) -> Optional<RustString> {
+        { let val = __swift_bridge__$RStringMap$r_insert(ptr, { let rustString = key.intoRustString(); rustString.isOwned = false; return rustString.ptr }(), { let rustString = value.intoRustString(); rustString.isOwned = false; return rustString.ptr }()); if val != nil { return RustString(ptr: val!) } else { return nil } }()
+    }
+
+    internal func r_change_or_insert<GenericIntoRustString: IntoRustString>(_ key: GenericIntoRustString, _ new_value: GenericIntoRustString) -> RustStr {
+        __swift_bridge__$RStringMap$r_change_or_insert(ptr, { let rustString = key.intoRustString(); rustString.isOwned = false; return rustString.ptr }(), { let rustString = new_value.intoRustString(); rustString.isOwned = false; return rustString.ptr }())
+    }
+}
+internal class RStringMapRef {
     var ptr: UnsafeMutableRawPointer
 
     internal init(ptr: UnsafeMutableRawPointer) {
         self.ptr = ptr
     }
 }
-extension RProgramRef {
-    internal func r_to_string() -> RustString {
-        RustString(ptr: __swift_bridge__$RProgram$r_to_string(ptr))
-    }
-
-    internal func r_has_function<GenericToRustStr: ToRustStr>(_ function_name: GenericToRustStr) -> Bool {
-        return function_name.toRustStr({ function_nameAsRustStr in
-            __swift_bridge__$RProgram$r_has_function(ptr, function_nameAsRustStr)
+extension RStringMapRef {
+    internal func r_get<GenericToRustStr: ToRustStr>(_ key: GenericToRustStr) -> Optional<RustStr> {
+        return key.toRustStr({ keyAsRustStr in
+            { let val = __swift_bridge__$RStringMap$r_get(ptr, keyAsRustStr); if val.start != nil { return val; } else { return nil; } }()
         })
     }
 
-    internal func r_get_functions() -> RustVec<RustString> {
-        RustVec(ptr: __swift_bridge__$RProgram$r_get_functions(ptr))
-    }
-
-    internal func r_get_function_inputs<GenericIntoRustString: IntoRustString>(_ function_name: GenericIntoRustString) -> Optional<RustString> {
-        { let val = __swift_bridge__$RProgram$r_get_function_inputs(ptr, { let rustString = function_name.intoRustString(); rustString.isOwned = false; return rustString.ptr }()); if val != nil { return RustString(ptr: val!) } else { return nil } }()
-    }
-
-    internal func r_get_mappings() -> Optional<RustString> {
-        { let val = __swift_bridge__$RProgram$r_get_mappings(ptr); if val != nil { return RustString(ptr: val!) } else { return nil } }()
-    }
-
-    internal func r_get_record_members<GenericIntoRustString: IntoRustString>(_ record_name: GenericIntoRustString) -> Optional<RustString> {
-        { let val = __swift_bridge__$RProgram$r_get_record_members(ptr, { let rustString = record_name.intoRustString(); rustString.isOwned = false; return rustString.ptr }()); if val != nil { return RustString(ptr: val!) } else { return nil } }()
-    }
-
-    internal func r_get_struct_members<GenericIntoRustString: IntoRustString>(_ struct_name: GenericIntoRustString) -> Optional<RustString> {
-        { let val = __swift_bridge__$RProgram$r_get_struct_members(ptr, { let rustString = struct_name.intoRustString(); rustString.isOwned = false; return rustString.ptr }()); if val != nil { return RustString(ptr: val!) } else { return nil } }()
-    }
-
-    class internal func r_get_credits_program() -> RProgram {
-        RProgram(ptr: __swift_bridge__$RProgram$r_get_credits_program())
-    }
-
-    internal func r_id() -> RustString {
-        RustString(ptr: __swift_bridge__$RProgram$r_id(ptr))
-    }
-
-    internal func r_is_equal(_ other: RProgramRef) -> Bool {
-        __swift_bridge__$RProgram$r_is_equal(ptr, other.ptr)
-    }
-
-    internal func r_get_imports() -> Optional<RustString> {
-        { let val = __swift_bridge__$RProgram$r_get_imports(ptr); if val != nil { return RustString(ptr: val!) } else { return nil } }()
+    internal func r_contains_key<GenericToRustStr: ToRustStr>(_ key: GenericToRustStr) -> Bool {
+        return key.toRustStr({ keyAsRustStr in
+            __swift_bridge__$RStringMap$r_contains_key(ptr, keyAsRustStr)
+        })
     }
 }
-extension RProgramRef: Equatable {
-    public static func == (lhs: RProgramRef, rhs: RProgramRef) -> Bool {
-        __swift_bridge__$RProgram$_partial_eq(rhs.ptr, lhs.ptr)
-    }
-}
-extension RProgram: Vectorizable {
+extension RStringMap: Vectorizable {
     internal static func vecOfSelfNew() -> UnsafeMutableRawPointer {
-        __swift_bridge__$Vec_RProgram$new()
+        __swift_bridge__$Vec_RStringMap$new()
     }
 
     internal static func vecOfSelfFree(vecPtr: UnsafeMutableRawPointer) {
-        __swift_bridge__$Vec_RProgram$drop(vecPtr)
+        __swift_bridge__$Vec_RStringMap$drop(vecPtr)
     }
 
-    internal static func vecOfSelfPush(vecPtr: UnsafeMutableRawPointer, value: RProgram) {
-        __swift_bridge__$Vec_RProgram$push(vecPtr, {value.isOwned = false; return value.ptr;}())
+    internal static func vecOfSelfPush(vecPtr: UnsafeMutableRawPointer, value: RStringMap) {
+        __swift_bridge__$Vec_RStringMap$push(vecPtr, {value.isOwned = false; return value.ptr;}())
     }
 
     internal static func vecOfSelfPop(vecPtr: UnsafeMutableRawPointer) -> Optional<Self> {
-        let pointer = __swift_bridge__$Vec_RProgram$pop(vecPtr)
+        let pointer = __swift_bridge__$Vec_RStringMap$pop(vecPtr)
         if pointer == nil {
             return nil
         } else {
-            return (RProgram(ptr: pointer!) as! Self)
+            return (RStringMap(ptr: pointer!) as! Self)
         }
     }
 
-    internal static func vecOfSelfGet(vecPtr: UnsafeMutableRawPointer, index: UInt) -> Optional<RProgramRef> {
-        let pointer = __swift_bridge__$Vec_RProgram$get(vecPtr, index)
+    internal static func vecOfSelfGet(vecPtr: UnsafeMutableRawPointer, index: UInt) -> Optional<RStringMapRef> {
+        let pointer = __swift_bridge__$Vec_RStringMap$get(vecPtr, index)
         if pointer == nil {
             return nil
         } else {
-            return RProgramRef(ptr: pointer!)
+            return RStringMapRef(ptr: pointer!)
         }
     }
 
-    internal static func vecOfSelfGetMut(vecPtr: UnsafeMutableRawPointer, index: UInt) -> Optional<RProgramRefMut> {
-        let pointer = __swift_bridge__$Vec_RProgram$get_mut(vecPtr, index)
+    internal static func vecOfSelfGetMut(vecPtr: UnsafeMutableRawPointer, index: UInt) -> Optional<RStringMapRefMut> {
+        let pointer = __swift_bridge__$Vec_RStringMap$get_mut(vecPtr, index)
         if pointer == nil {
             return nil
         } else {
-            return RProgramRefMut(ptr: pointer!)
+            return RStringMapRefMut(ptr: pointer!)
         }
     }
 
-    internal static func vecOfSelfAsPtr(vecPtr: UnsafeMutableRawPointer) -> UnsafePointer<RProgramRef> {
-        UnsafePointer<RProgramRef>(OpaquePointer(__swift_bridge__$Vec_RProgram$as_ptr(vecPtr)))
+    internal static func vecOfSelfAsPtr(vecPtr: UnsafeMutableRawPointer) -> UnsafePointer<RStringMapRef> {
+        UnsafePointer<RStringMapRef>(OpaquePointer(__swift_bridge__$Vec_RStringMap$as_ptr(vecPtr)))
     }
 
     internal static func vecOfSelfLen(vecPtr: UnsafeMutableRawPointer) -> UInt {
-        __swift_bridge__$Vec_RProgram$len(vecPtr)
+        __swift_bridge__$Vec_RStringMap$len(vecPtr)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+internal class RProgramManager: RProgramManagerRefMut {
+    var isOwned: Bool = true
+
+    internal override init(ptr: UnsafeMutableRawPointer) {
+        super.init(ptr: ptr)
+    }
+
+    deinit {
+        if isOwned {
+            __swift_bridge__$RProgramManager$_free(ptr)
+        }
+    }
+}
+extension RProgramManager {
+    class internal func r_execute<GenericIntoRustString: IntoRustString, GenericToRustStr: ToRustStr>(_ private_key: RPrivateKeyRef, _ program: GenericToRustStr, _ function: GenericToRustStr, _ inputs: RustVec<GenericIntoRustString>, _ fee_credits: Double, _ fee_record: Optional<RRecordPlaintext>, _ url: Optional<GenericIntoRustString>, _ imports: Optional<RStringMap>, _ proving_key: Optional<RProvingKey>, _ verifying_key: Optional<RVerifyingKey>, _ fee_proving_key: Optional<RProvingKey>, _ fee_verifying_key: Optional<RVerifyingKey>) -> Optional<RTransaction> {
+        return function.toRustStr({ functionAsRustStr in
+            return program.toRustStr({ programAsRustStr in
+            { let val = __swift_bridge__$RProgramManager$r_execute(private_key.ptr, programAsRustStr, functionAsRustStr, { let val = inputs; val.isOwned = false; return val.ptr }(), fee_credits, { if let val = fee_record { val.isOwned = false; return val.ptr } else { return nil } }(), { if let rustString = optionalStringIntoRustString(url) { rustString.isOwned = false; return rustString.ptr } else { return nil } }(), { if let val = imports { val.isOwned = false; return val.ptr } else { return nil } }(), { if let val = proving_key { val.isOwned = false; return val.ptr } else { return nil } }(), { if let val = verifying_key { val.isOwned = false; return val.ptr } else { return nil } }(), { if let val = fee_proving_key { val.isOwned = false; return val.ptr } else { return nil } }(), { if let val = fee_verifying_key { val.isOwned = false; return val.ptr } else { return nil } }()); if val != nil { return RTransaction(ptr: val!) } else { return nil } }()
+        })
+        })
+    }
+}
+internal class RProgramManagerRefMut: RProgramManagerRef {
+    internal override init(ptr: UnsafeMutableRawPointer) {
+        super.init(ptr: ptr)
+    }
+}
+internal class RProgramManagerRef {
+    var ptr: UnsafeMutableRawPointer
+
+    internal init(ptr: UnsafeMutableRawPointer) {
+        self.ptr = ptr
+    }
+}
+extension RProgramManager: Vectorizable {
+    internal static func vecOfSelfNew() -> UnsafeMutableRawPointer {
+        __swift_bridge__$Vec_RProgramManager$new()
+    }
+
+    internal static func vecOfSelfFree(vecPtr: UnsafeMutableRawPointer) {
+        __swift_bridge__$Vec_RProgramManager$drop(vecPtr)
+    }
+
+    internal static func vecOfSelfPush(vecPtr: UnsafeMutableRawPointer, value: RProgramManager) {
+        __swift_bridge__$Vec_RProgramManager$push(vecPtr, {value.isOwned = false; return value.ptr;}())
+    }
+
+    internal static func vecOfSelfPop(vecPtr: UnsafeMutableRawPointer) -> Optional<Self> {
+        let pointer = __swift_bridge__$Vec_RProgramManager$pop(vecPtr)
+        if pointer == nil {
+            return nil
+        } else {
+            return (RProgramManager(ptr: pointer!) as! Self)
+        }
+    }
+
+    internal static func vecOfSelfGet(vecPtr: UnsafeMutableRawPointer, index: UInt) -> Optional<RProgramManagerRef> {
+        let pointer = __swift_bridge__$Vec_RProgramManager$get(vecPtr, index)
+        if pointer == nil {
+            return nil
+        } else {
+            return RProgramManagerRef(ptr: pointer!)
+        }
+    }
+
+    internal static func vecOfSelfGetMut(vecPtr: UnsafeMutableRawPointer, index: UInt) -> Optional<RProgramManagerRefMut> {
+        let pointer = __swift_bridge__$Vec_RProgramManager$get_mut(vecPtr, index)
+        if pointer == nil {
+            return nil
+        } else {
+            return RProgramManagerRefMut(ptr: pointer!)
+        }
+    }
+
+    internal static func vecOfSelfAsPtr(vecPtr: UnsafeMutableRawPointer) -> UnsafePointer<RProgramManagerRef> {
+        UnsafePointer<RProgramManagerRef>(OpaquePointer(__swift_bridge__$Vec_RProgramManager$as_ptr(vecPtr)))
+    }
+
+    internal static func vecOfSelfLen(vecPtr: UnsafeMutableRawPointer) -> UInt {
+        __swift_bridge__$Vec_RProgramManager$len(vecPtr)
     }
 }
 

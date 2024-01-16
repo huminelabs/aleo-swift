@@ -1,15 +1,6 @@
 {
   "pins" : [
     {
-      "identity" : "foil",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/jessesquires/Foil.git",
-      "state" : {
-        "revision" : "977201c9cab14cb09158005698eeaee58e85efb4",
-        "version" : "4.0.1"
-      }
-    },
-    {
       "identity" : "keychainaccess",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/kishikawakatsumi/KeychainAccess.git",
@@ -42,7 +33,7 @@
       "location" : "https://github.com/nafehshoaib/SwiftCloud.git",
       "state" : {
         "branch" : "main",
-        "revision" : "822f210ff32157d5c42e83225e5fb18ce9c8c785"
+        "revision" : "4a56cdc1e3a149b5636a85119938960426e9c05c"
       }
     },
     {

@@ -28,33 +28,43 @@ swift-bridge-build = { git = "https://github.com/huminelabs/swift-bridge.git", b
 
 [dependencies]
 openssl = { version = "*", features = ["vendored"] }
-swift-bridge = { git = "https://github.com/huminelabs/swift-bridge.git", branch = "internal-generated-swift" }
+swift-bridge = { git = "https://github.com/huminelabs/swift-bridge.git", branch = "internal-generated-swift", features = [
+    "async",
+] }
 swift-bridge-build = { git = "https://github.com/huminelabs/swift-bridge.git", branch = "internal-generated-swift" }
 
 [dependencies.snarkvm-circuit-network]
-version = "0.16.1"
+version = "=0.16.12"
 
 [dependencies.snarkvm-console]
-version = "0.16.1"
+version = "=0.16.12"
 features = ["wasm"]
 
 [dependencies.snarkvm-ledger-block]
-version = "0.16.1"
+version = "=0.16.12"
 features = ["wasm"]
 
 [dependencies.snarkvm-ledger-query]
-version = "0.16.1"
+version = "=0.16.12"
 features = ["async", "wasm"]
 
 [dependencies.snarkvm-ledger-store]
-version = "0.16.1"
+version = "=0.16.12"
 
 [dependencies.snarkvm-synthesizer]
-version = "0.16.1"
+version = "=0.16.12"
 features = ["async", "wasm"]
 
+[dependencies.snarkvm-synthesizer-program]
+version = "=0.16.12"
+features = ["wasm"]
+
+[dependencies.snarkvm-parameters]
+version = "=0.16.12"
+features = ["wasm"]
+
 [dependencies.snarkvm-wasm]
-version = "0.16.1"
+version = "=0.16.12"
 features = ["console", "fields", "utilities"]
 
 [dependencies.anyhow]
@@ -98,18 +108,11 @@ version = "2"
 version = "0.2"
 features = ["serde-serialize"]
 
-[dependencies.wasm-bindgen-futures]
-version = "0.4.37"
-
 [dependencies.console_error_panic_hook]
 version = "0.1.7"
 
 [dependencies.serde]
 version = "1.0.183"
-
-[dev-dependencies.snarkvm-parameters]
-version = "0.16.1"
-features = ["wasm"]
 
 [dependencies.spmc]
 version = "0.3.0"
@@ -121,8 +124,9 @@ version = "0.3.28"
 version = "0.3.64"
 features = ["Url", "Navigator", "Window"]
 
-[dev-dependencies.wasm-bindgen-test]
-version = "0.3.37"
+[dependencies.sha2]
+version = "0.10"
+default-features = false
 
 [features]
 default = ["serial", "browser"]

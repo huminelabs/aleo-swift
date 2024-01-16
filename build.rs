@@ -16,7 +16,9 @@ fn main() {
         "src/programs/verifying_key.rs",
         "src/programs/transaction.rs",
         "src/programs/key_pair.rs",
-        "src/programs/program.rs",
+        "src/programs/manager/string_map.rs",
+        "src/programs/manager/macros.rs",
+        "src/programs/manager/program_manager.rs",
     ];
 
     for path in &bridges {

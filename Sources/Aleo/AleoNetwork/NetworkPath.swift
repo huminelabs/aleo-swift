@@ -1,5 +1,5 @@
 //
-//  AleoCloudPath.swift
+//  NetworkPath.swift
 //
 //
 //  Created by Nafeh Shoaib on 11/08/23.
@@ -9,8 +9,8 @@ import Foundation
 
 import SwiftCloud
 
-public enum AleoCloudPath: CloudServicePath {
-    case custom(String), block, blocks, latestBlock, latestHeight, program(String), stateRoot, transaction(String), blockTransactions(Int), memoryPoolTransactions, transitionID(String)
+public enum NetworkPath: CloudServicePath {
+    case custom(String), block, blocks, latestBlock, latestHeight, program(String), stateRoot, transaction(String), blockTransactions(Int), memoryPoolTransactions, transitionID(String), transactionBroadcast
     
     public var pathString: String {
         switch self {
@@ -36,6 +36,8 @@ public enum AleoCloudPath: CloudServicePath {
             return "memoryPool/transactions"
         case .transitionID(let inputOrOutputID):
             return "find/transitionID/\(inputOrOutputID)"
+        case .transactionBroadcast:
+            return "transaction/broadcast"
         }
     }
 }

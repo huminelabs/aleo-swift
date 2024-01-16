@@ -5,4 +5,5 @@
 .DS_Store
 /generated
 AleoCore.xcframework
+/AleoCore.xcframework
 AleoCore.xcframework.zip
