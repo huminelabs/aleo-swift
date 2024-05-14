@@ -15,7 +15,7 @@ public enum NetworkHost: CloudServerURL {
     public var urlString: String {
         switch self {
         case .testnet3:
-            return "https://api.explorer.aleo.org/v1"
+            return "https://api.explorer.aleo.org/v1/testnet3/"
         case .custom(let string):
             return string
         }

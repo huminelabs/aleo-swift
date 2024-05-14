@@ -42,7 +42,7 @@
       "location" : "https://github.com/nafehshoaib/SwiftCloud.git",
       "state" : {
         "branch" : "main",
-        "revision" : "822f210ff32157d5c42e83225e5fb18ce9c8c785"
+        "revision" : "091367818ffbf0a45ddfcab1c9756db7252e153f"
       }
     },
     {
@@ -69,7 +69,7 @@
       "location" : "https://github.com/nafehshoaib/UsefulSwift.git",
       "state" : {
         "branch" : "main",
-        "revision" : "69f8ff7394681e28ccf5b665850aa7b897a88861"
+        "revision" : "b85230a4acec6054de5134e4bd165e1c0bf55a17"
       }
     }
   ],

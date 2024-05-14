@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import Observation
+import os
 
 import SwiftCloud
 
@@ -33,7 +34,7 @@ public class NetworkClient: BasicCloudService<NetworkHost, NetworkPath> {
         self.init(serverURL: NetworkHost.custom(hostString))
     }
     
-    public func set(account: Account) -> Self {
+    public func withSet(account: Account) -> Self {
         let s = self
         s.account = account
         return s
@@ -45,7 +46,7 @@ public class NetworkClient: BasicCloudService<NetworkHost, NetworkPath> {
     
     public func findUnspentRecords(startHeight: Int, endHeight: Int? = nil, privateKey: PrivateKey? = nil, amounts: [Float]? = nil, maxMicrocredits: Float? = nil, nonces: [String] = []) async throws -> [RecordPlaintext] {
         // Ensure start height is not negative
-        guard startHeight > 0 else {
+        guard startHeight >= 0 else {
             throw NetworkError.startHeightLessThanZero
         }
         
@@ -74,7 +75,7 @@ public class NetworkClient: BasicCloudService<NetworkHost, NetworkPath> {
         }
         
         // If the starting is greater than the ending height, return an error
-        guard startHeight < resolvedEndHeight else {
+        guard startHeight <= resolvedEndHeight else {
             throw NetworkError.heightError
         }
         
@@ -105,109 +106,117 @@ public class NetworkClient: BasicCloudService<NetworkHost, NetworkPath> {
                 start = startHeight
             }
             
-            // Get 50 blocks (or the difference between the start and end if less than 50)
-            let blocks = try await getBlocks(in: start...end)
-            
-            end = start
-            
-            // Iterate through blocks to find unspent records
-            for block in blocks {
-                guard let transactions = block.transactions else {
-                    continue
-                }
-                for confirmedTransaction in transactions {
-                    guard confirmedTransaction.type == "execute" else {
+            do {
+                // Get 50 blocks (or the difference between the start and end if less than 50)
+                let blocks = try await getBlocks(in: start...end)
+                
+                end = start
+                
+                // Iterate through blocks to find unspent records
+                for block in blocks {
+                    guard let transactions = block.transactions else {
                         continue
                     }
-                    
-                    let transaction = confirmedTransaction.transaction
-                    
-                    guard let transitions = transaction.execution.transitions else {
-                        continue
-                    }
-                    
-                    for transition in transitions {
-                        guard transition.program == "credits.aleo" else {
+                    for confirmedTransaction in transactions {
+                        guard confirmedTransaction.type == "execute" else {
                             continue
                         }
                         
-                        guard let outputs = transition.outputs else {
+                        let transaction = confirmedTransaction.transaction
+                        
+                        guard let transitions = transaction.execution?.transitions else {
                             continue
                         }
                         
-                        for output in outputs {
-                            guard output.type == "record" else {
+                        for transition in transitions {
+                            guard transition.program == "credits.aleo" else {
                                 continue
                             }
                             
-                            guard let record = RecordCiphertext(output.value),
-                                  record.isOwner(viewKey: viewKey),
-                                  let recordPlaintext = record.decrypt(viewKey: viewKey),
-                                  !nonces.contains(recordPlaintext.nonce) else {
+                            guard let outputs = transition.outputs else {
                                 continue
                             }
                             
-                            guard let serialNumber = recordPlaintext.serialNumber(privateKey: resolvedPrivateKey, programID: "credits.aleo", recordName: "credits") else {
-                                continue
-                            }
-                            
-                            do {
-                                let _ = try await getTransaction(id: serialNumber)
-                            } catch {
-                                guard let amounts = amounts,
-                                      !amounts.isEmpty else {
-                                    // If it's not found, add it to the list of unspent records
-                                    records.append(recordPlaintext)
-                                    
-                                    if addToTotalRecordValueAndCheck(recordPlaintext, records) {
-                                        return records
-                                    }
-                                    
+                            for output in outputs {
+                                guard output.type == "record" else {
                                     continue
                                 }
                                 
-                                // If the user specified a list of amounts, check if the search has found them
-                                var amountsFound = 0
+                                guard let outputValue = output.value,
+                                      let record = RecordCiphertext(outputValue),
+                                      record.isOwner(viewKey: viewKey),
+                                      let recordPlaintext = record.decrypt(viewKey: viewKey),
+                                      !nonces.contains(recordPlaintext.nonce) else {
+                                    continue
+                                }
                                 
-                                if recordPlaintext.microcredits > amounts[amountsFound] {
-                                    amountsFound += 1
-                                    records.append(recordPlaintext)
-                                    
-                                    if addToTotalRecordValueAndCheck(recordPlaintext, records) {
-                                        return records
+                                guard let serialNumber = recordPlaintext.serialNumber(privateKey: resolvedPrivateKey, programID: "credits.aleo", recordName: "credits") else {
+                                    continue
+                                }
+                                
+                                do {
+                                    let _ = try await getTransaction(id: serialNumber)
+                                } catch {
+                                    guard let amounts = amounts,
+                                          !amounts.isEmpty else {
+                                        // If it's not found, add it to the list of unspent records
+                                        records.append(recordPlaintext)
+                                        
+                                        if addToTotalRecordValueAndCheck(recordPlaintext, records) {
+                                            return records
+                                        }
+                                        
+                                        continue
                                     }
                                     
-                                    if records.count >= amounts.count {
-                                        return records
+                                    // If the user specified a list of amounts, check if the search has found them
+                                    var amountsFound = 0
+                                    
+                                    if recordPlaintext.microcredits > amounts[amountsFound] {
+                                        amountsFound += 1
+                                        records.append(recordPlaintext)
+                                        
+                                        if addToTotalRecordValueAndCheck(recordPlaintext, records) {
+                                            return records
+                                        }
+                                        
+                                        if records.count >= amounts.count {
+                                            return records
+                                        }
                                     }
                                 }
                             }
                         }
                     }
                 }
+            } catch {
+                os_log("Error fetching blocks in range: \(start) - \(end) with error: \(error)")
+                failures += 1
+                
+                if failures > 10 {
+                    os_log("Failed to fetch records with 10 failures. Returning records so far")
+                    
+                    return records
+                }
             }
         }
-        
-        // TODO: Fail after 10 tries
         
         return records
     }
     
     public func getBlock(height: Int) async throws -> Block {
-        let (data, _) = try await sendRequest(at: .block, using: .get)
+        let (data, _) = try await sendRequest(at: .block(height), using: .get)
         
         return try JSONDecoder().decode(Block.self, from: data)
     }
     
     public func getBlocks(in range: ClosedRange<Int>) async throws -> [Block] {
         let params = [
-            "start": range.lowerBound,
-            "end": range.upperBound
+            "start": "\(range.lowerBound)",
+            "end": "\(range.upperBound)"
         ]
         
-        let payloadData = try JSONEncoder().encode(params)
-        
-        let (data, _) = try await sendRequest(at: .blocks, using: .get, body: payloadData)
+        let (data, _) = try await sendRequest(at: .blocks, using: .get, queryParams: params)
         
         return try JSONDecoder().decode([Block].self, from: data)
     }
@@ -236,22 +245,22 @@ public class NetworkClient: BasicCloudService<NetworkHost, NetworkPath> {
         return try JSONDecoder().decode(String.self, from: data)
     }
     
-    public func getTransaction(id: String) async throws -> NetworkTransaction {
+    public func getTransaction(id: String) async throws -> ExecutionTransaction {
         let (data, _) = try await sendRequest(at: .transaction(id), using: .get)
         
-        return try JSONDecoder().decode(NetworkTransaction.self, from: data)
+        return try JSONDecoder().decode(ExecutionTransaction.self, from: data)
     }
     
-    public func getTransactions(height: Int) async throws -> [NetworkTransaction] {
+    public func getTransactions(height: Int) async throws -> [ExecutionTransaction] {
         let (data, _) = try await sendRequest(at: .blockTransactions(height), using: .get)
         
-        return try JSONDecoder().decode([NetworkTransaction].self, from: data)
+        return try JSONDecoder().decode([ExecutionTransaction].self, from: data)
     }
     
-    public func getTransactionsInMemoryPool() async throws -> [NetworkTransaction] {
+    public func getTransactionsInMemoryPool() async throws -> [ExecutionTransaction] {
         let (data, _) = try await sendRequest(at: .memoryPoolTransactions, using: .get)
         
-        return try JSONDecoder().decode([NetworkTransaction].self, from: data)
+        return try JSONDecoder().decode([ExecutionTransaction].self, from: data)
     }
     
     public func getTransitionID(usingInputOrOutID id: String) async throws -> String {

@@ -16,14 +16,38 @@ public class NetworkProgramManager<K: KeyProvider, R: RecordProvider> {
     public var host: String
     public var networkClient: NetworkClient
     
-    public var recordProvider: R
+    public var recordProvider: R?
     
-    public init(account: Account? = nil, keyProvider: K, host: String, networkClient: NetworkClient, recordProvider: R) {
+    public convenience init(
+        account: Account? = nil,
+        host: String? = nil,
+        networkClient: NetworkClient? = nil
+    ) where K == NetworkKeyProvider, R == NetworkRecordProvider {
+        self.init(
+            account: account,
+            keyProvider: NetworkKeyProvider(),
+            host: host,
+            networkClient: networkClient,
+            recordProvider: NetworkRecordProvider(account: account ?? Account(),
+                                                  client: networkClient ?? NetworkClient(host ?? "https://api.explorer.aleo.org/v1/testnet3/"))
+        )
+    }
+    
+    public init(
+        account: Account? = nil,
+        keyProvider: K,
+        host: String? = nil,
+        networkClient: NetworkClient? = nil,
+        recordProvider: R?
+    ) {
         // Test
         self.account = account
         self.keyProvider = keyProvider
-        self.host = host
-        self.networkClient = networkClient
+        
+        let h = host ?? "https://api.explorer.aleo.org/v1/testnet3/"
+        self.host = h
+        self.networkClient = networkClient ?? NetworkClient(h)
+        
         self.recordProvider = recordProvider
     }
         
@@ -63,7 +87,7 @@ public class NetworkProgramManager<K: KeyProvider, R: RecordProvider> {
     public func execute(
         programName: String,
         functionName: String,
-        fee: Int,
+        fee: Float,
         privateFee: Bool,
         inputs: [String],
         recordSearchParams: RecordSearchParams? = nil,
@@ -148,6 +172,10 @@ public class NetworkProgramManager<K: KeyProvider, R: RecordProvider> {
 
             // Get the fee record from the account if it is not provided in the parameters
             
+            guard let recordProvider = recordProvider else {
+                throw ProgramError.noRecordProvider
+            }
+            
             let newFeeRecord = try await recordProvider.findCreditsRecord(microcredits: fee, unspent: true, nonces: [], searchParameters: recordSearchParams)
 
             // Get the fee proving and verifying keys from the key provider
@@ -191,7 +219,7 @@ public class NetworkProgramManager<K: KeyProvider, R: RecordProvider> {
 
 
 enum ProgramError: Error, LocalizedError {
-    case failedToFindProgram(String), noPrivateKey
+    case failedToFindProgram(String), noPrivateKey, noRecordProvider
     
     var errorDescription: String? {
         switch self {
@@ -199,6 +227,8 @@ enum ProgramError: Error, LocalizedError {
             "Error finding \(id). Please ensure you're connected to a valid Aleo network the program is deployed to the network."
         case .noPrivateKey:
             "No private key provided and no private key set in the ProgramManager"
+        case .noRecordProvider:
+            "No record provider provided in ProgramManager"
         }
     }
 }

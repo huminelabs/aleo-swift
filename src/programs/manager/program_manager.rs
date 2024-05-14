@@ -113,7 +113,7 @@ impl RProgramManager {
         };
         let mut process_native = ProcessNative::load_web().map_err(|err| err.to_string())?;
         let process = &mut process_native;
-        const DEFAULT_URL: &str = "https://api.explorer.aleo.org/v1";
+        const DEFAULT_URL: &str = "https://api.explorer.aleo.org/v1/testnet3";
         let node_url = url.as_deref().unwrap_or(DEFAULT_URL);
 
         // log("Check program imports are valid and add them to the process");

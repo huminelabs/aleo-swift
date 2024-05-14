@@ -14,13 +14,11 @@ extension NetworkClient {
             case previousHash = "previous_hash"
             case header
             case transactions
-            case signature
         }
         public var blockHash: String
         public var previousHash: String
         public var header: Header
         public var transactions: [ConfirmedTransaction]?
-        public var signature: String
     }
     
     public struct Header: Codable {
@@ -48,18 +46,23 @@ extension NetworkClient {
     
     public struct ConfirmedTransaction: Codable {
         public var type: String
-        public var id: String
-        public var transaction: NetworkTransaction
+        public var status: String
+        public var index: Int
+        public var transaction: ExecutionTransaction
     }
     
-    public struct NetworkTransaction: Codable {
+    public struct ExecutionTransaction: Codable {
         public var type: String
         public var id: String
-        public var execution: Execution
+        public var execution: Execution?
     }
     
     public struct Execution: Codable {
-        public var edition: Int
+        enum CodingKeys: String, CodingKey {
+            case globalStateRoot = "global_state_root", proof, transitions
+        }
+        public var globalStateRoot: String
+        public var proof: String
         public var transitions: [Transition]?
     }
     
@@ -69,10 +72,8 @@ extension NetworkClient {
         public var function: String
         public var inputs: [Input]?
         public var outputs: [Output]?
-        public var proof: String
-        public var tpk: String
-        public var tcm: String
-        public var fee: Int
+        public var tpk: String?
+        public var tcm: String?
     }
     
     public struct Input: Codable {
@@ -84,13 +85,13 @@ extension NetworkClient {
     }
     
     public struct Origin: Codable {
-        public var commitment: String
+        public var commitment: String?
     }
     
     public struct Output: Codable {
-        public var type: String;
-        public var id: String;
-        public var checksum: String;
-        public var value: String;
+        public var type: String
+        public var id: String
+        public var checksum: String?
+        public var value: String?
     }
 }

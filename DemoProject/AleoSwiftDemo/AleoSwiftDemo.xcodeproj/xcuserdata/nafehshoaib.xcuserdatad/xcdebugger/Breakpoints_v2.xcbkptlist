@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "F5062FAE-C56D-4851-986D-506200218F63"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "71541C75-FCFA-44F2-820C-E2687722DB7A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../Sources/Aleo/AleoNetwork/NetworkProgramManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+            landmarkName = "buildExecutionTransaction(programName:functionName:fee:privateFee:inputs:recordSearchParams:keySearchProverURL:keySearchVerifierURL:keySearchCacheKey:feeRecord:provingKey:verifyingKey:privateKey:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "71541C75-FCFA-44F2-820C-E2687722DB7A - 795155918d7faee0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for Aleo.NetworkProgramManager.buildExecutionTransaction(programName: Swift.String, functionName: Swift.String, fee: Swift.Float, privateFee: Swift.Bool, inputs: Swift.Array&lt;Swift.String&gt;, recordSearchParams: Swift.Optional&lt;Aleo.RecordSearchParams&gt;, keySearchProverURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchVerifierURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchCacheKey: Swift.Optional&lt;Swift.String&gt;, feeRecord: Swift.Optional&lt;Aleo.RecordPlaintext&gt;, provingKey: Swift.Optional&lt;Aleo.ProvingKey&gt;, verifyingKey: Swift.Optional&lt;Aleo.VerifyingKey&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;) async throws -&gt; Swift.Optional&lt;Aleo.Transaction&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkProgramManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "203"
+                  endingLineNumber = "203">
+               </Location>
+               <Location
+                  uuid = "71541C75-FCFA-44F2-820C-E2687722DB7A - abb8d20eec796aa6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(9) suspend resume partial function for Aleo.NetworkProgramManager.buildExecutionTransaction(programName: Swift.String, functionName: Swift.String, fee: Swift.Float, privateFee: Swift.Bool, inputs: Swift.Array&lt;Swift.String&gt;, recordSearchParams: Swift.Optional&lt;Aleo.RecordSearchParams&gt;, keySearchProverURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchVerifierURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchCacheKey: Swift.Optional&lt;Swift.String&gt;, feeRecord: Swift.Optional&lt;Aleo.RecordPlaintext&gt;, provingKey: Swift.Optional&lt;Aleo.ProvingKey&gt;, verifyingKey: Swift.Optional&lt;Aleo.VerifyingKey&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;) async throws -&gt; Swift.Optional&lt;Aleo.Transaction&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkProgramManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "203"
+                  endingLineNumber = "203">
+               </Location>
+               <Location
+                  uuid = "71541C75-FCFA-44F2-820C-E2687722DB7A - a538e431b33088d8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) suspend resume partial function for Aleo.NetworkProgramManager.buildExecutionTransaction(programName: Swift.String, functionName: Swift.String, fee: Swift.Float, privateFee: Swift.Bool, inputs: Swift.Array&lt;Swift.String&gt;, recordSearchParams: Swift.Optional&lt;Aleo.RecordSearchParams&gt;, keySearchProverURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchVerifierURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchCacheKey: Swift.Optional&lt;Swift.String&gt;, feeRecord: Swift.Optional&lt;Aleo.RecordPlaintext&gt;, provingKey: Swift.Optional&lt;Aleo.ProvingKey&gt;, verifyingKey: Swift.Optional&lt;Aleo.VerifyingKey&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;) async throws -&gt; Swift.Optional&lt;Aleo.Transaction&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkProgramManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "203"
+                  endingLineNumber = "203">
+               </Location>
+               <Location
+                  uuid = "71541C75-FCFA-44F2-820C-E2687722DB7A - e2c6b0cb5e1afd9f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(12) await resume partial function for Aleo.NetworkProgramManager.buildExecutionTransaction(programName: Swift.String, functionName: Swift.String, fee: Swift.Float, privateFee: Swift.Bool, inputs: Swift.Array&lt;Swift.String&gt;, recordSearchParams: Swift.Optional&lt;Aleo.RecordSearchParams&gt;, keySearchProverURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchVerifierURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchCacheKey: Swift.Optional&lt;Swift.String&gt;, feeRecord: Swift.Optional&lt;Aleo.RecordPlaintext&gt;, provingKey: Swift.Optional&lt;Aleo.ProvingKey&gt;, verifyingKey: Swift.Optional&lt;Aleo.VerifyingKey&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;) async throws -&gt; Swift.Optional&lt;Aleo.Transaction&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkProgramManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "203"
+                  endingLineNumber = "203">
+               </Location>
+               <Location
+                  uuid = "71541C75-FCFA-44F2-820C-E2687722DB7A - a36c50406c8d7d8a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(13) suspend resume partial function for Aleo.NetworkProgramManager.buildExecutionTransaction(programName: Swift.String, functionName: Swift.String, fee: Swift.Float, privateFee: Swift.Bool, inputs: Swift.Array&lt;Swift.String&gt;, recordSearchParams: Swift.Optional&lt;Aleo.RecordSearchParams&gt;, keySearchProverURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchVerifierURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchCacheKey: Swift.Optional&lt;Swift.String&gt;, feeRecord: Swift.Optional&lt;Aleo.RecordPlaintext&gt;, provingKey: Swift.Optional&lt;Aleo.ProvingKey&gt;, verifyingKey: Swift.Optional&lt;Aleo.VerifyingKey&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;) async throws -&gt; Swift.Optional&lt;Aleo.Transaction&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkProgramManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159">
+               </Location>
+               <Location
+                  uuid = "71541C75-FCFA-44F2-820C-E2687722DB7A - a36c50406c8d775e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(13) suspend resume partial function for Aleo.NetworkProgramManager.buildExecutionTransaction(programName: Swift.String, functionName: Swift.String, fee: Swift.Float, privateFee: Swift.Bool, inputs: Swift.Array&lt;Swift.String&gt;, recordSearchParams: Swift.Optional&lt;Aleo.RecordSearchParams&gt;, keySearchProverURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchVerifierURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchCacheKey: Swift.Optional&lt;Swift.String&gt;, feeRecord: Swift.Optional&lt;Aleo.RecordPlaintext&gt;, provingKey: Swift.Optional&lt;Aleo.ProvingKey&gt;, verifyingKey: Swift.Optional&lt;Aleo.VerifyingKey&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;) async throws -&gt; Swift.Optional&lt;Aleo.Transaction&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkProgramManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "203"
+                  endingLineNumber = "203">
+               </Location>
+               <Location
+                  uuid = "71541C75-FCFA-44F2-820C-E2687722DB7A - b3f1010d31114523"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(18) suspend resume partial function for Aleo.NetworkProgramManager.buildExecutionTransaction(programName: Swift.String, functionName: Swift.String, fee: Swift.Float, privateFee: Swift.Bool, inputs: Swift.Array&lt;Swift.String&gt;, recordSearchParams: Swift.Optional&lt;Aleo.RecordSearchParams&gt;, keySearchProverURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchVerifierURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchCacheKey: Swift.Optional&lt;Swift.String&gt;, feeRecord: Swift.Optional&lt;Aleo.RecordPlaintext&gt;, provingKey: Swift.Optional&lt;Aleo.ProvingKey&gt;, verifyingKey: Swift.Optional&lt;Aleo.VerifyingKey&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;) async throws -&gt; Swift.Optional&lt;Aleo.Transaction&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkProgramManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "203"
+                  endingLineNumber = "203">
+               </Location>
+               <Location
+                  uuid = "71541C75-FCFA-44F2-820C-E2687722DB7A - ce0f577496a3a56c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(19) suspend resume partial function for Aleo.NetworkProgramManager.buildExecutionTransaction(programName: Swift.String, functionName: Swift.String, fee: Swift.Float, privateFee: Swift.Bool, inputs: Swift.Array&lt;Swift.String&gt;, recordSearchParams: Swift.Optional&lt;Aleo.RecordSearchParams&gt;, keySearchProverURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchVerifierURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchCacheKey: Swift.Optional&lt;Swift.String&gt;, feeRecord: Swift.Optional&lt;Aleo.RecordPlaintext&gt;, provingKey: Swift.Optional&lt;Aleo.ProvingKey&gt;, verifyingKey: Swift.Optional&lt;Aleo.VerifyingKey&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;) async throws -&gt; Swift.Optional&lt;Aleo.Transaction&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkProgramManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "215"
+                  endingLineNumber = "215">
+               </Location>
+               <Location
+                  uuid = "71541C75-FCFA-44F2-820C-E2687722DB7A - ce0f577496a3a6e0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(19) suspend resume partial function for Aleo.NetworkProgramManager.buildExecutionTransaction(programName: Swift.String, functionName: Swift.String, fee: Swift.Float, privateFee: Swift.Bool, inputs: Swift.Array&lt;Swift.String&gt;, recordSearchParams: Swift.Optional&lt;Aleo.RecordSearchParams&gt;, keySearchProverURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchVerifierURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchCacheKey: Swift.Optional&lt;Swift.String&gt;, feeRecord: Swift.Optional&lt;Aleo.RecordPlaintext&gt;, provingKey: Swift.Optional&lt;Aleo.ProvingKey&gt;, verifyingKey: Swift.Optional&lt;Aleo.VerifyingKey&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;) async throws -&gt; Swift.Optional&lt;Aleo.Transaction&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkProgramManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "203"
+                  endingLineNumber = "203">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "07FB4768-14DC-41B4-A59D-E4527B60F8E6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../Sources/Aleo/AleoNetwork/NetworkProgramManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
+            landmarkName = "buildExecutionTransaction(programName:functionName:fee:privateFee:inputs:recordSearchParams:keySearchProverURL:keySearchVerifierURL:keySearchCacheKey:feeRecord:provingKey:verifyingKey:privateKey:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "07FB4768-14DC-41B4-A59D-E4527B60F8E6 - 795155918d7fa875"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for Aleo.NetworkProgramManager.buildExecutionTransaction(programName: Swift.String, functionName: Swift.String, fee: Swift.Float, privateFee: Swift.Bool, inputs: Swift.Array&lt;Swift.String&gt;, recordSearchParams: Swift.Optional&lt;Aleo.RecordSearchParams&gt;, keySearchProverURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchVerifierURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchCacheKey: Swift.Optional&lt;Swift.String&gt;, feeRecord: Swift.Optional&lt;Aleo.RecordPlaintext&gt;, provingKey: Swift.Optional&lt;Aleo.ProvingKey&gt;, verifyingKey: Swift.Optional&lt;Aleo.VerifyingKey&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;) async throws -&gt; Swift.Optional&lt;Aleo.Transaction&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkProgramManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "192"
+                  endingLineNumber = "192">
+               </Location>
+               <Location
+                  uuid = "07FB4768-14DC-41B4-A59D-E4527B60F8E6 - abb8d20eec796c33"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(9) suspend resume partial function for Aleo.NetworkProgramManager.buildExecutionTransaction(programName: Swift.String, functionName: Swift.String, fee: Swift.Float, privateFee: Swift.Bool, inputs: Swift.Array&lt;Swift.String&gt;, recordSearchParams: Swift.Optional&lt;Aleo.RecordSearchParams&gt;, keySearchProverURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchVerifierURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchCacheKey: Swift.Optional&lt;Swift.String&gt;, feeRecord: Swift.Optional&lt;Aleo.RecordPlaintext&gt;, provingKey: Swift.Optional&lt;Aleo.ProvingKey&gt;, verifyingKey: Swift.Optional&lt;Aleo.VerifyingKey&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;) async throws -&gt; Swift.Optional&lt;Aleo.Transaction&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkProgramManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "192"
+                  endingLineNumber = "192">
+               </Location>
+               <Location
+                  uuid = "07FB4768-14DC-41B4-A59D-E4527B60F8E6 - fc166aa41a23516c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(10) await resume partial function for Aleo.NetworkProgramManager.buildExecutionTransaction(programName: Swift.String, functionName: Swift.String, fee: Swift.Float, privateFee: Swift.Bool, inputs: Swift.Array&lt;Swift.String&gt;, recordSearchParams: Swift.Optional&lt;Aleo.RecordSearchParams&gt;, keySearchProverURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchVerifierURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchCacheKey: Swift.Optional&lt;Swift.String&gt;, feeRecord: Swift.Optional&lt;Aleo.RecordPlaintext&gt;, provingKey: Swift.Optional&lt;Aleo.ProvingKey&gt;, verifyingKey: Swift.Optional&lt;Aleo.VerifyingKey&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;) async throws -&gt; Swift.Optional&lt;Aleo.Transaction&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkProgramManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "192"
+                  endingLineNumber = "192">
+               </Location>
+               <Location
+                  uuid = "07FB4768-14DC-41B4-A59D-E4527B60F8E6 - a538e431b3308e4d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) suspend resume partial function for Aleo.NetworkProgramManager.buildExecutionTransaction(programName: Swift.String, functionName: Swift.String, fee: Swift.Float, privateFee: Swift.Bool, inputs: Swift.Array&lt;Swift.String&gt;, recordSearchParams: Swift.Optional&lt;Aleo.RecordSearchParams&gt;, keySearchProverURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchVerifierURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchCacheKey: Swift.Optional&lt;Swift.String&gt;, feeRecord: Swift.Optional&lt;Aleo.RecordPlaintext&gt;, provingKey: Swift.Optional&lt;Aleo.ProvingKey&gt;, verifyingKey: Swift.Optional&lt;Aleo.VerifyingKey&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;) async throws -&gt; Swift.Optional&lt;Aleo.Transaction&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkProgramManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "192"
+                  endingLineNumber = "192">
+               </Location>
+               <Location
+                  uuid = "07FB4768-14DC-41B4-A59D-E4527B60F8E6 - b3f1010d311143b6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(18) suspend resume partial function for Aleo.NetworkProgramManager.buildExecutionTransaction(programName: Swift.String, functionName: Swift.String, fee: Swift.Float, privateFee: Swift.Bool, inputs: Swift.Array&lt;Swift.String&gt;, recordSearchParams: Swift.Optional&lt;Aleo.RecordSearchParams&gt;, keySearchProverURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchVerifierURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchCacheKey: Swift.Optional&lt;Swift.String&gt;, feeRecord: Swift.Optional&lt;Aleo.RecordPlaintext&gt;, provingKey: Swift.Optional&lt;Aleo.ProvingKey&gt;, verifyingKey: Swift.Optional&lt;Aleo.VerifyingKey&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;) async throws -&gt; Swift.Optional&lt;Aleo.Transaction&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkProgramManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "192"
+                  endingLineNumber = "192">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "26A1B191-E2E1-4C7E-AB9B-0B4C3D1AEBD9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../Sources/Aleo/AleoNetwork/NetworkProgramManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
+            landmarkName = "buildExecutionTransaction(programName:functionName:fee:privateFee:inputs:recordSearchParams:keySearchProverURL:keySearchVerifierURL:keySearchCacheKey:feeRecord:provingKey:verifyingKey:privateKey:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "26A1B191-E2E1-4C7E-AB9B-0B4C3D1AEBD9 - 48e9d5602e7de5ed"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for Aleo.NetworkProgramManager.buildExecutionTransaction(programName: Swift.String, functionName: Swift.String, fee: Swift.Float, privateFee: Swift.Bool, inputs: Swift.Array&lt;Swift.String&gt;, recordSearchParams: Swift.Optional&lt;Aleo.RecordSearchParams&gt;, keySearchProverURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchVerifierURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchCacheKey: Swift.Optional&lt;Swift.String&gt;, feeRecord: Swift.Optional&lt;Aleo.RecordPlaintext&gt;, provingKey: Swift.Optional&lt;Aleo.ProvingKey&gt;, verifyingKey: Swift.Optional&lt;Aleo.VerifyingKey&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;) async throws -&gt; Swift.Optional&lt;Aleo.Transaction&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkProgramManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "182"
+                  endingLineNumber = "182">
+               </Location>
+               <Location
+                  uuid = "26A1B191-E2E1-4C7E-AB9B-0B4C3D1AEBD9 - 9b6b0e888e72ae33"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(6) await resume partial function for Aleo.NetworkProgramManager.buildExecutionTransaction(programName: Swift.String, functionName: Swift.String, fee: Swift.Float, privateFee: Swift.Bool, inputs: Swift.Array&lt;Swift.String&gt;, recordSearchParams: Swift.Optional&lt;Aleo.RecordSearchParams&gt;, keySearchProverURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchVerifierURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchCacheKey: Swift.Optional&lt;Swift.String&gt;, feeRecord: Swift.Optional&lt;Aleo.RecordPlaintext&gt;, provingKey: Swift.Optional&lt;Aleo.ProvingKey&gt;, verifyingKey: Swift.Optional&lt;Aleo.VerifyingKey&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;) async throws -&gt; Swift.Optional&lt;Aleo.Transaction&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkProgramManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "182"
+                  endingLineNumber = "182">
+               </Location>
+               <Location
+                  uuid = "26A1B191-E2E1-4C7E-AB9B-0B4C3D1AEBD9 - 795155918d7fa92f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for Aleo.NetworkProgramManager.buildExecutionTransaction(programName: Swift.String, functionName: Swift.String, fee: Swift.Float, privateFee: Swift.Bool, inputs: Swift.Array&lt;Swift.String&gt;, recordSearchParams: Swift.Optional&lt;Aleo.RecordSearchParams&gt;, keySearchProverURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchVerifierURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchCacheKey: Swift.Optional&lt;Swift.String&gt;, feeRecord: Swift.Optional&lt;Aleo.RecordPlaintext&gt;, provingKey: Swift.Optional&lt;Aleo.ProvingKey&gt;, verifyingKey: Swift.Optional&lt;Aleo.VerifyingKey&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;) async throws -&gt; Swift.Optional&lt;Aleo.Transaction&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkProgramManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "182"
+                  endingLineNumber = "182">
+               </Location>
+               <Location
+                  uuid = "26A1B191-E2E1-4C7E-AB9B-0B4C3D1AEBD9 - efae056590e325d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(8) await resume partial function for Aleo.NetworkProgramManager.buildExecutionTransaction(programName: Swift.String, functionName: Swift.String, fee: Swift.Float, privateFee: Swift.Bool, inputs: Swift.Array&lt;Swift.String&gt;, recordSearchParams: Swift.Optional&lt;Aleo.RecordSearchParams&gt;, keySearchProverURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchVerifierURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchCacheKey: Swift.Optional&lt;Swift.String&gt;, feeRecord: Swift.Optional&lt;Aleo.RecordPlaintext&gt;, provingKey: Swift.Optional&lt;Aleo.ProvingKey&gt;, verifyingKey: Swift.Optional&lt;Aleo.VerifyingKey&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;) async throws -&gt; Swift.Optional&lt;Aleo.Transaction&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkProgramManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "182"
+                  endingLineNumber = "182">
+               </Location>
+               <Location
+                  uuid = "26A1B191-E2E1-4C7E-AB9B-0B4C3D1AEBD9 - abb8d20eec796d69"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(9) suspend resume partial function for Aleo.NetworkProgramManager.buildExecutionTransaction(programName: Swift.String, functionName: Swift.String, fee: Swift.Float, privateFee: Swift.Bool, inputs: Swift.Array&lt;Swift.String&gt;, recordSearchParams: Swift.Optional&lt;Aleo.RecordSearchParams&gt;, keySearchProverURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchVerifierURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchCacheKey: Swift.Optional&lt;Swift.String&gt;, feeRecord: Swift.Optional&lt;Aleo.RecordPlaintext&gt;, provingKey: Swift.Optional&lt;Aleo.ProvingKey&gt;, verifyingKey: Swift.Optional&lt;Aleo.VerifyingKey&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;) async throws -&gt; Swift.Optional&lt;Aleo.Transaction&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkProgramManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "182"
+                  endingLineNumber = "182">
+               </Location>
+               <Location
+                  uuid = "26A1B191-E2E1-4C7E-AB9B-0B4C3D1AEBD9 - b5bdd5fa79b49449"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(16) suspend resume partial function for Aleo.NetworkProgramManager.buildExecutionTransaction(programName: Swift.String, functionName: Swift.String, fee: Swift.Float, privateFee: Swift.Bool, inputs: Swift.Array&lt;Swift.String&gt;, recordSearchParams: Swift.Optional&lt;Aleo.RecordSearchParams&gt;, keySearchProverURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchVerifierURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchCacheKey: Swift.Optional&lt;Swift.String&gt;, feeRecord: Swift.Optional&lt;Aleo.RecordPlaintext&gt;, provingKey: Swift.Optional&lt;Aleo.ProvingKey&gt;, verifyingKey: Swift.Optional&lt;Aleo.VerifyingKey&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;) async throws -&gt; Swift.Optional&lt;Aleo.Transaction&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkProgramManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159">
+               </Location>
+               <Location
+                  uuid = "26A1B191-E2E1-4C7E-AB9B-0B4C3D1AEBD9 - b5bdd5fa79b49952"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(16) suspend resume partial function for Aleo.NetworkProgramManager.buildExecutionTransaction(programName: Swift.String, functionName: Swift.String, fee: Swift.Float, privateFee: Swift.Bool, inputs: Swift.Array&lt;Swift.String&gt;, recordSearchParams: Swift.Optional&lt;Aleo.RecordSearchParams&gt;, keySearchProverURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchVerifierURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchCacheKey: Swift.Optional&lt;Swift.String&gt;, feeRecord: Swift.Optional&lt;Aleo.RecordPlaintext&gt;, provingKey: Swift.Optional&lt;Aleo.ProvingKey&gt;, verifyingKey: Swift.Optional&lt;Aleo.VerifyingKey&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;) async throws -&gt; Swift.Optional&lt;Aleo.Transaction&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkProgramManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "182"
+                  endingLineNumber = "182">
+               </Location>
+               <Location
+                  uuid = "26A1B191-E2E1-4C7E-AB9B-0B4C3D1AEBD9 - b0dbfb25dd46f2b6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(17) suspend resume partial function for Aleo.NetworkProgramManager.buildExecutionTransaction(programName: Swift.String, functionName: Swift.String, fee: Swift.Float, privateFee: Swift.Bool, inputs: Swift.Array&lt;Swift.String&gt;, recordSearchParams: Swift.Optional&lt;Aleo.RecordSearchParams&gt;, keySearchProverURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchVerifierURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchCacheKey: Swift.Optional&lt;Swift.String&gt;, feeRecord: Swift.Optional&lt;Aleo.RecordPlaintext&gt;, provingKey: Swift.Optional&lt;Aleo.ProvingKey&gt;, verifyingKey: Swift.Optional&lt;Aleo.VerifyingKey&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;) async throws -&gt; Swift.Optional&lt;Aleo.Transaction&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkProgramManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159">
+               </Location>
+               <Location
+                  uuid = "26A1B191-E2E1-4C7E-AB9B-0B4C3D1AEBD9 - b0dbfb25dd46ffad"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(17) suspend resume partial function for Aleo.NetworkProgramManager.buildExecutionTransaction(programName: Swift.String, functionName: Swift.String, fee: Swift.Float, privateFee: Swift.Bool, inputs: Swift.Array&lt;Swift.String&gt;, recordSearchParams: Swift.Optional&lt;Aleo.RecordSearchParams&gt;, keySearchProverURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchVerifierURL: Swift.Optional&lt;Foundation.URL&gt;, keySearchCacheKey: Swift.Optional&lt;Swift.String&gt;, feeRecord: Swift.Optional&lt;Aleo.RecordPlaintext&gt;, provingKey: Swift.Optional&lt;Aleo.ProvingKey&gt;, verifyingKey: Swift.Optional&lt;Aleo.VerifyingKey&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;) async throws -&gt; Swift.Optional&lt;Aleo.Transaction&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkProgramManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "182"
+                  endingLineNumber = "182">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4E289609-774F-4254-81BC-41A5C2E7CD8C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../Sources/Aleo/AleoNetwork/NetworkRecordProvider.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "220"
+            endingLineNumber = "220"
+            landmarkName = "findCreditsRecords(microcredits:unspent:nonces:searchParameters:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4DF962A2-06EE-48EE-8C5A-7ACEBEB1037F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../Sources/Aleo/AleoNetwork/NetworkClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
+            landmarkName = "findUnspentRecords(startHeight:endHeight:privateKey:amounts:maxMicrocredits:nonces:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4DF962A2-06EE-48EE-8C5A-7ACEBEB1037F - be09a8d356eb1a4f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for Aleo.NetworkClient.findUnspentRecords(startHeight: Swift.Int, endHeight: Swift.Optional&lt;Swift.Int&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;, amounts: Swift.Optional&lt;Swift.Array&lt;Swift.Float&gt;&gt;, maxMicrocredits: Swift.Optional&lt;Swift.Float&gt;, nonces: Swift.Array&lt;Swift.String&gt;) async throws -&gt; Swift.Array&lt;Aleo.RecordPlaintext&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "158"
+                  endingLineNumber = "158">
+               </Location>
+               <Location
+                  uuid = "4DF962A2-06EE-48EE-8C5A-7ACEBEB1037F - a8e91e47b64f0917"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(6) await resume partial function for Aleo.NetworkClient.findUnspentRecords(startHeight: Swift.Int, endHeight: Swift.Optional&lt;Swift.Int&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;, amounts: Swift.Optional&lt;Swift.Array&lt;Swift.Float&gt;&gt;, maxMicrocredits: Swift.Optional&lt;Swift.Float&gt;, nonces: Swift.Array&lt;Swift.String&gt;) async throws -&gt; Swift.Array&lt;Aleo.RecordPlaintext&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "158"
+                  endingLineNumber = "158">
+               </Location>
+               <Location
+                  uuid = "4DF962A2-06EE-48EE-8C5A-7ACEBEB1037F - 26bf9e3c58125e41"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for Aleo.NetworkClient.findUnspentRecords(startHeight: Swift.Int, endHeight: Swift.Optional&lt;Swift.Int&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;, amounts: Swift.Optional&lt;Swift.Array&lt;Swift.Float&gt;&gt;, maxMicrocredits: Swift.Optional&lt;Swift.Float&gt;, nonces: Swift.Array&lt;Swift.String&gt;) async throws -&gt; Swift.Array&lt;Aleo.RecordPlaintext&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "158"
+                  endingLineNumber = "158">
+               </Location>
+               <Location
+                  uuid = "4DF962A2-06EE-48EE-8C5A-7ACEBEB1037F - 47a26aef4d29eac0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(10) suspend resume partial function for Aleo.NetworkClient.findUnspentRecords(startHeight: Swift.Int, endHeight: Swift.Optional&lt;Swift.Int&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;, amounts: Swift.Optional&lt;Swift.Array&lt;Swift.Float&gt;&gt;, maxMicrocredits: Swift.Optional&lt;Swift.Float&gt;, nonces: Swift.Array&lt;Swift.String&gt;) async throws -&gt; Swift.Array&lt;Aleo.RecordPlaintext&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "158"
+                  endingLineNumber = "158">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "883BB0AC-8492-49CF-B07A-6B2CB59256D4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../Sources/Aleo/AleoNetwork/NetworkClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "findUnspentRecords(startHeight:endHeight:privateKey:amounts:maxMicrocredits:nonces:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "883BB0AC-8492-49CF-B07A-6B2CB59256D4 - be09a8d356eb1bf9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for Aleo.NetworkClient.findUnspentRecords(startHeight: Swift.Int, endHeight: Swift.Optional&lt;Swift.Int&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;, amounts: Swift.Optional&lt;Swift.Array&lt;Swift.Float&gt;&gt;, maxMicrocredits: Swift.Optional&lt;Swift.Float&gt;, nonces: Swift.Array&lt;Swift.String&gt;) async throws -&gt; Swift.Array&lt;Aleo.RecordPlaintext&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "148"
+                  endingLineNumber = "148">
+               </Location>
+               <Location
+                  uuid = "883BB0AC-8492-49CF-B07A-6B2CB59256D4 - 26bf9e3c58125ff7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for Aleo.NetworkClient.findUnspentRecords(startHeight: Swift.Int, endHeight: Swift.Optional&lt;Swift.Int&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;, amounts: Swift.Optional&lt;Swift.Array&lt;Swift.Float&gt;&gt;, maxMicrocredits: Swift.Optional&lt;Swift.Float&gt;, nonces: Swift.Array&lt;Swift.String&gt;) async throws -&gt; Swift.Array&lt;Aleo.RecordPlaintext&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "148"
+                  endingLineNumber = "148">
+               </Location>
+               <Location
+                  uuid = "883BB0AC-8492-49CF-B07A-6B2CB59256D4 - 47a26aef4d29eb76"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(10) suspend resume partial function for Aleo.NetworkClient.findUnspentRecords(startHeight: Swift.Int, endHeight: Swift.Optional&lt;Swift.Int&gt;, privateKey: Swift.Optional&lt;Aleo.PrivateKey&gt;, amounts: Swift.Optional&lt;Swift.Array&lt;Swift.Float&gt;&gt;, maxMicrocredits: Swift.Optional&lt;Swift.Float&gt;, nonces: Swift.Array&lt;Swift.String&gt;) async throws -&gt; Swift.Array&lt;Aleo.RecordPlaintext&gt;"
+                  moduleName = "AleoSwiftDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/aleo-swift/Sources/Aleo/AleoNetwork/NetworkClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "148"
+                  endingLineNumber = "148">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

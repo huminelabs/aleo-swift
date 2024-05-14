@@ -7,29 +7,70 @@
 
 import XCTest
 
+@testable import Aleo
+
 final class NetworkClientTests: XCTestCase {
+    
+    var client: NetworkClient!
+    
+    var recordsProvider: NetworkRecordProvider!
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    override func setUp() async throws {
+        client = NetworkClient(serverURL: .testnet3)
+        recordsProvider = NetworkRecordProvider(account: Account(), client: client)
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown() async throws {
+        
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testSetAccount() async throws {
+        let account = Account()
+        
+        client.set(account: account)
+        
+        XCTAssertEqual(client.account, account)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testGetBlock() async throws {
+        let block = try await client.getBlock(height: 1)
+        
+        XCTAssertEqual(block.blockHash, "ab1hap8jlxaz66yt887gxlgxptkm2y0dy72x529mq6pg3ysy9tzwyqsphva9c")
     }
-
+    
+    func testGetBlocksInRange() async throws {
+        let blocks = try await client.getBlocks(in: 1...3)
+        
+        XCTAssertEqual(blocks.count, 2)
+        XCTAssertEqual(blocks.first?.blockHash, "ab1hap8jlxaz66yt887gxlgxptkm2y0dy72x529mq6pg3ysy9tzwyqsphva9c")
+        XCTAssertEqual(blocks.last?.blockHash, "ab18dzmjgqgk5z6x4gggezca7aenqts7289chvhus4a7ydrcj4apvrqq5j5h8")
+    }
+    
+    func testGetBlocksInRange2() async throws {
+        let blocks = try await client.getBlocks(in: 1807649...1807650)
+        
+        XCTAssertEqual(blocks.count, 2)
+        XCTAssertEqual(blocks.first?.blockHash, "ab1hap8jlxaz66yt887gxlgxptkm2y0dy72x529mq6pg3ysy9tzwyqsphva9c")
+        XCTAssertEqual(blocks.last?.blockHash, "ab18dzmjgqgk5z6x4gggezca7aenqts7289chvhus4a7ydrcj4apvrqq5j5h8")
+    }
+    
+    func testGetProgram() async throws {
+        let program = try await client.getProgram(programID: "credits.aleo")
+        
+        XCTAssertNotNil(program)
+    }
+    
+    func testFindUnspentRecords() async throws {
+        let records = try await client.findUnspentRecords(startHeight: 0, endHeight: 204, privateKey: PrivateKey("APrivateKey1zkp8CZNn3yeCseEtxuVPbDCwSyhGW6yZKUYKfgXmcpoGPWH"))
+        
+        XCTAssert(records.isEmpty)
+    }
+    
+    func testFindCreditRecords() async throws {
+        let params = BlockHeightSearch(startHeight: 0, endHeight: 100)
+        
+        let records = try await recordsProvider.findCreditsRecords(microcredits: [100.0, 200.0], unspent: true, nonces: [], searchParameters: params)
+        
+        XCTAssert(records.isEmpty)
+    }
 }

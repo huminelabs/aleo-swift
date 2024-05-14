@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB20DF452BA907EB0078D1D2 /* Aleo in Frameworks */ = {isa = PBXBuildFile; productRef = FB20DF442BA907EB0078D1D2 /* Aleo */; };
+		FB4E4FE42BA916990026EA82 /* AleoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4E4FE32BA916990026EA82 /* AleoViewModel.swift */; };
 		FBC9218E2BA104EB00732FF7 /* AleoSwiftDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC9218D2BA104EB00732FF7 /* AleoSwiftDemoApp.swift */; };
 		FBC921902BA104EB00732FF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC9218F2BA104EB00732FF7 /* ContentView.swift */; };
 		FBC921922BA104EE00732FF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBC921912BA104EE00732FF7 /* Assets.xcassets */; };
@@ -14,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FB4E4FE32BA916990026EA82 /* AleoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AleoViewModel.swift; sourceTree = "<group>"; };
 		FBC9218A2BA104EB00732FF7 /* AleoSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AleoSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBC9218D2BA104EB00732FF7 /* AleoSwiftDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AleoSwiftDemoApp.swift; sourceTree = "<group>"; };
 		FBC9218F2BA104EB00732FF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB20DF452BA907EB0078D1D2 /* Aleo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +57,7 @@
 			children = (
 				FBC9218D2BA104EB00732FF7 /* AleoSwiftDemoApp.swift */,
 				FBC9218F2BA104EB00732FF7 /* ContentView.swift */,
+				FB4E4FE32BA916990026EA82 /* AleoViewModel.swift */,
 				FBC921912BA104EE00732FF7 /* Assets.xcassets */,
 				FBC921932BA104EE00732FF7 /* Preview Content */,
 			);
@@ -83,6 +88,9 @@
 			dependencies = (
 			);
 			name = AleoSwiftDemo;
+			packageProductDependencies = (
+				FB20DF442BA907EB0078D1D2 /* Aleo */,
+			);
 			productName = AleoSwiftDemo;
 			productReference = FBC9218A2BA104EB00732FF7 /* AleoSwiftDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +119,9 @@
 				Base,
 			);
 			mainGroup = FBC921812BA104EB00732FF7;
+			packageReferences = (
+				FB20DF432BA907EB0078D1D2 /* XCLocalSwiftPackageReference "../.." */,
+			);
 			productRefGroup = FBC9218B2BA104EB00732FF7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBC921902BA104EB00732FF7 /* ContentView.swift in Sources */,
+				FB4E4FE42BA916990026EA82 /* AleoViewModel.swift in Sources */,
 				FBC9218E2BA104EB00732FF7 /* AleoSwiftDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +292,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,6 +322,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -344,6 +358,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		FB20DF432BA907EB0078D1D2 /* XCLocalSwiftPackageReference "../.." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../..;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FB20DF442BA907EB0078D1D2 /* Aleo */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Aleo;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FBC921822BA104EB00732FF7 /* Project object */;
 }

@@ -1,5 +1,15 @@
 {
+  "originHash" : "dd4d616c82af57b6f0d1984bfceab0789febdce4e55298a6081ad21f214a5661",
   "pins" : [
+    {
+      "identity" : "foil",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jessesquires/Foil.git",
+      "state" : {
+        "revision" : "977201c9cab14cb09158005698eeaee58e85efb4",
+        "version" : "4.0.1"
+      }
+    },
     {
       "identity" : "keychainaccess",
       "kind" : "remoteSourceControl",
@@ -33,7 +43,7 @@
       "location" : "https://github.com/nafehshoaib/SwiftCloud.git",
       "state" : {
         "branch" : "main",
-        "revision" : "4a56cdc1e3a149b5636a85119938960426e9c05c"
+        "revision" : "091367818ffbf0a45ddfcab1c9756db7252e153f"
       }
     },
     {
@@ -60,9 +70,9 @@
       "location" : "https://github.com/nafehshoaib/UsefulSwift.git",
       "state" : {
         "branch" : "main",
-        "revision" : "69f8ff7394681e28ccf5b665850aa7b897a88861"
+        "revision" : "b85230a4acec6054de5134e4bd165e1c0bf55a17"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

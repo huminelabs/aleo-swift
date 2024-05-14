@@ -10,14 +10,14 @@ import Foundation
 import SwiftCloud
 
 public enum NetworkPath: CloudServicePath {
-    case custom(String), block, blocks, latestBlock, latestHeight, program(String), stateRoot, transaction(String), blockTransactions(Int), memoryPoolTransactions, transitionID(String), transactionBroadcast
+    case custom(String), block(Int), blocks, latestBlock, latestHeight, program(String), stateRoot, transaction(String), blockTransactions(Int), memoryPoolTransactions, transitionID(String), transactionBroadcast
     
     public var pathString: String {
         switch self {
         case .custom(let string):
             return string
-        case .block:
-            return "block"
+        case .block(let height):
+            return "block/\(height)"
         case .blocks:
             return "blocks"
         case .latestBlock:
