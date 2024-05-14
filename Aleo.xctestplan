@@ -1,0 +1,27 @@
+{
+  "configurations" : [
+    {
+      "id" : "7CFF8390-2234-4BD3-A2A3-A3659AEE9F73",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "skippedTests" : [
+        "ProvingKeyTests"
+      ],
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "AleoTests",
+        "name" : "AleoTests"
+      }
+    }
+  ],
+  "version" : 1
+}
